@@ -1,21 +1,21 @@
-*Ether* (ETH) is a cryptocurrency. *Ether* is also used to pay fees for using the Ethereum network, like making transactions in the form of sending *Ether* to an address or interacting with an Ethereum application.
+* Ether *（ETH）は暗号通貨です。 * Ether *は、* Ether *をアドレスに送信したり、Ethereumアプリケーションと対話したりする形でトランザクションを行うなど、Ethereumネットワークを使用するための料金を支払うためにも使用されます。
 
 ### Ether Units
-To specify a unit of *Ether*, we can add the suffixes `wei`, `gwei`, or `ether` to a literal number.
+*Ether*の単位を指定するには、リテラル番号に接尾辞 `wei`、` gwei`、または`ether`を追加できます。
 
 #### `wei`
-*Wei* is the smallest subunit of *Ether*, named after the cryptographer [Wei Dai](https://en.wikipedia.org/wiki/Wei_Dai). *Ether* numbers without a suffix are treated as `wei` (line 7).
+*Wei*は、*Ether*の最小のサブユニットであり、暗号学者[Wei Dai](https://en.wikipedia.org/wiki/Wei_Dai)にちなんで名付けられました。接尾辞のない*その他*の数字は`wei`として扱われます（7行目）。
 
 #### `gwei`
-One `gwei` (giga-wei) is equal to 1,000,000,000 (10^9) `wei`.
+1`gwei`（giga-wei）は1,000,000,000（10 ^ 9）`wei`に相当します。
 
 #### `ether`
-One `ether` is equal to 1,000,000,000,000,000,000 (10^18) `wei` (line 11).
+1`ether`は1,000,000,000,000,000,000（10 ^ 18）` wei`に等しい（11行目）。
 
-<a href="https://www.youtube.com/watch?v=ybPQsjssyNw" target="_blank">Watch a video tutorial on Ether and Wei</a>.
+<a href="https://www.youtube.com/watch?v=ybPQsjssyNw" target="_blank">EtherとWeiのビデオチュートリアルをご覧ください。</a>
 
-## ⭐️ Assignment
-1. Create a `public` `uint` called `oneGWei` and set it to 1 `gwei`.
-2. Create a `public` `bool` called `isOneGWei` and set it to the result of a comparison operation between 1 gwei and 10^9.
+## ⭐️問題
+1. `oneGWei`という`public` `uint`を作成し、それを1`gwei`に設定します。
+2. `isOneGWei`という`public` `bool`を作成し、1gweiと10^9の比較操作の結果に設定します。
 
-Tip: Look at how this is written for `gwei` and `ether` in the contract.
+ヒント：これがコントラクトの`gwei`と`ether`に対してどのように記述されているかを見てください。

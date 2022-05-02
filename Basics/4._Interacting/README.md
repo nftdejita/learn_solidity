@@ -1,20 +1,20 @@
-## Interacting with the functions in a deployed contract
+## ディプロイされたコントラクトの関数と対話する
 
-What are the functions in the deployed contract? What parameters does a function take and how can you be sure you input the correct input types?  Does it cost gas to use a particular function?  And what happens when you click a function's **transact** button - which is to say what happens when you want to make a transaction through a function?
+ディプロイされたコントラクトの関数とは何でしょうか。関数はどのようなパラメータを受け取り、正しい入力タイプを入力したことを確認するにはどうすればよいですか？ 特定の機能を使用する際に、ガソリンを消費しますか？ また、ある関数の **transact** ボタンをクリックするとどうなるのか、つまり、ある関数を通じて取引を行いたい場合はどうすればいいのか。
 
-We will cover these questions in this chapter.
+この章では、これらの疑問について取り上げます。
 
-1. At the bottom of the Deploy and Run page, open up the contract by clicking the caret - so the caret points down.
-![deploy contract](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/4._Interacting/images/instance.png "deployed contract")
+1. Deploy and Runページの下部で、キャレットをクリックしてコントラクトを開きます - キャレットが下を向くようにします。
+![デプロイされたコントラクト](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/4._Interacting/images/instance.png "deployed contract")
 
-2. There are 2 functions in this contract.  Clicking the caret to the right of change Owner (outlined in red) will open up the inputs so that you can put in the parameters in separate input boxes.
+2. このコントラクトには、2つの関数があります。 change Owner（赤枠）の右側にあるキャレットをクリックすると、入力欄が開くので、パラメータを別々の入力ボックスに入力することができます。
 
-If this contract had imported other contracts then the functions of the imported contracts would be visible here too.
+このコントラクトが他のコントラクトをインポートしていた場合、インポートされたコントラクトの関数もここに表示されます。
    
-![deploy contract](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/4._Interacting/images/deployed_open2.png "deployed contract")
+![デプロイされたコントラクト](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/4._Interacting/images/deployed_open2.png "デプロイされたコントラクト")
 
-3. One of the functions has a blue buttons.  Blue buttoned functions are either  **pure** or **view** functions.  This means that they are just reading a property or are returning a value.  In other words, they aren't saving anything - so they are FREE (they don’t cost gas).  Functions with other colors - usually orange (depending on the Remix theme) cost gas because they are saving information.  They are creating a **transaction**.  
+3. 関数の1つに青いボタンがあります。 青いボタンのついた関数は、**pure** または **view** 関数です。 つまり、プロパティを読み取るだけ、あるいは値を返すだけの関数です。 つまり、何も保存していないので、無料です（ガソリン代がかかりません）。 他の色の関数、通常はオレンジ色（Remixのテーマによる）の関数は、情報を保存しているため、ガソリン代がかかります。 これは情報を保存しているためで、**トランザクション**を生成しているのです。 
 
-4. 2_Owner.sol does not have a **payable** function.  If it did, the button's color would be red.  Payable functions allow you to send Ether to the function.  To send ETH with a payable function you put the amount you want to send in the **value** field towards the top of the screen.
+4. 2_Owner.solには**payable**関数がありません。 もしあれば、ボタンの色は赤になるはずです。 payable関数は、Etherを送ることができる関数です。 payable機能でETHを送るには、画面上部の**value**フィールドに送りたい金額を入力してください。
 
-5. In the JSVM, you don't need to approve a transaction.  When using a more realistic test environment or when using the mainnet - you will need to approve transactions for them to go through. Approving a transaction costs ETH. To approve a transaction when using Injected Web3, you’d typically use MetaMask.  In MetaMask, you’d choose the network - a test network that uses test ETH or you can use the mainnet where you'd use real ETH.
+5. JSVMでは、トランザクションを承認する必要はありません。 より現実的なテスト環境またはメインネットを使用する場合、取引を承認する必要があります。トランザクションの承認にはETHがかかります。Injected Web3を使用しているときにトランザクションを承認するには、通常MetaMaskを使用します。 MetaMaskでは、ネットワークを選択します。テストETHを使用するテストネットワーク、または本物のETHを使用するメインネットを使用することができます。

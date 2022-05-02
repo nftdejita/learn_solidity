@@ -1,36 +1,36 @@
-In this section, we will learn how to modify the behavior of a function and how to run contract initialization code. 
+このセクションでは、関数の動作を変更する方法と、コントラクト初期化コードを実行する方法を学習します。
 
-### Function Modifier
-*Function Modifiers* are used to change the behavior of a function. For example, they often check for a condition prior to executing a function to restrict access or validate inputs.
+### 関数修飾子
+*関数修飾子*は、関数の動作を変更するために使用されます。たとえば、アクセスを制限したり入力を検証したりする関数を実行する前に、条件をチェックすることがよくあります。
 
-This first part of this contract is about changing ownership of a contract. Ownership in this contract is expressed by the value of the state variable `owner` that is of the type `address` (line 7).
+このコントラクトのこの最初の部分は、コントラクトの所有権を変更することについてです。このコントラクトの所有権は、タイプ `address`の状態変数`owner`の値で表されます（7行目）。
 
-The function `changeOwner` (line 33) can change this ownership. It takes an input parameter of the type `address` and assigns its value to the state variable `owner`.
+関数`changeOwner`（33行目）は、この所有権を変更できます。タイプ`address`の入力パラメーターを受け取り、その値を状態変数`owner`に割り当てます。
 
-However, this function cannot simply be executed under all conditions; it has two modifiers, `onlyOwner` and `validAddress`.
+ただし、この機能はすべての条件下で単純に実行できるわけではありません。 `onlyOwner`と`validAddress`の2つの修飾子があります。
 
-Let's look at `onlyOwner` first (line 18). 
-Function modifiers are defined with the `modifier` keyword and a unique name; they can also have parameters. 
+最初に`onlyOwner`を見てみましょう（18行目）。
+関数修飾子は、`modifier`キーワードと一意の名前で定義されます。それらはパラメータを持つこともできます。
 
-The underscore `_` (line 23) is used inside modifiers to represent the rest of the code that will be executed in the body of the modified function.
-The code you place before the underscore in the modifier will be executed before the code in the body of the modified function. The code after the underscore will be executed after the code in the body of the modified function.
+アンダースコア`_`（23行目）は、修飾子の内部で使用され、変更された関数の本体で実行される残りのコードを表します。
+修飾子の下線の前に配置したコードは、変更された関数の本体のコードの前に実行されます。アンダースコアの後のコードは、変更された関数の本体のコードの後に​​実行されます。
 
-In this case, the `require` function (line 19) checks if the address executing the contract is the same as the value stored in the variable `owner`. If it is, the rest of the code will be executed, otherwise it will throw an error. 
+この場合、 `require`関数（19行目）は、コントラクトを実行しているアドレスが変数`owner`に格納されている値と同じであるかどうかをチェックします。そうである場合、残りのコードが実行され、そうでない場合はエラーがスローされます。
 
-You can learn more about `assert` and `require` in the <a href="https://docs.soliditylang.org/en/latest/control-structures.html#error-handling-assert-require-revert-and-exceptions" target="_blank">Solidity documentation</a>, they are used to check for conditions and throw errors if they are not met. 
+`assert`と`require`の詳細については、<a href="https://docs.soliditylang.org/en/latest/control-structures.html#error-handling-assert-require-revert-andをご覧ください。 -例外" target=" _ blank ">Solidityドキュメント</a>。条件を確認し、満たされていない場合はエラーをスローするために使用されます。
 
-The `validAddress` modifier (line 28) has a parameter of type `address` and checks if the provided address is valid. If it is, it continues to execute the code.
+`validAddress`修飾子（28行目）にはタイプ` address`のパラメーターがあり、指定されたアドレスが有効かどうかをチェックします。そうである場合は、コードの実行を続行します。
 
-### Constructor
-A constructor function is executed upon the creation of a contract. You can use it to run contract initialization code. The constructor can have parameters and is especially useful when you don't know certain initialization values before the deployment of the contract. 
+### コンストラクタ
+コンストラクター関数は、コントラクトの作成時に実行されます。これを使用して、コントラクト初期化コードを実行できます。コンストラクターはパラメーターを持つことができ、コントラクトのデプロイ前に特定の初期化値がわからない場合に特に役立ちます。
 
-You declare a constructor using the `constructor` keyword. The constructor in this contract (line 11) sets the initial value of the owner variable upon the creation of the contract.
+`constructor`キーワードを使用してコンストラクターを宣言します。このコントラクトのコンストラクター（11行目）は、コントラクトの作成時に所有者変数の初期値を設定します。
 
-<a href="https://www.youtube.com/watch?v=b6FBWsz7VaI" target="_blank">Watch a video tutorial on Function Modifiers</a>.
+<a href="https://www.youtube.com/watch?v=b6FBWsz7VaI" target="_blank">関数修飾子に関するビデオチュートリアルをご覧ください。</a>
 
-## ⭐️ Assignment
-1. Create a new function, `increaseX` in the contract. The function should take an input parameter of type `uint` and increase the value of the variable `x` by the value of the input parameter.
-2. Make sure that x can only be increased.
-3. The body of the function `increaseX` should be empty.
+## ⭐️問題
+1. コントラクトに新しい関数`increaseX`を作成します。この関数は、タイプ `uint`の入力パラメーターを受け取り、変数`x`の値を入力パラメーターの値だけ増やす必要があります。
+2. xのみを増やすことができることを確認します。
+3. 関数`increaseX`の本体は空である必要があります。
 
-Tip: Use modifiers.
+ヒント：修飾子を使用してください。

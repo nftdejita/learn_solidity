@@ -1,18 +1,19 @@
-## Deploying to a public test net.
+## 公開テストネットにデプロイする。
 
-1. Download the browser plugin **MetaMask**. 
+1. ブラウザプラグイン **MetaMask** をダウンロードする。
 
-2. Click the MetaMask icon in your browser. Sign in and choose a test network. 
+2. ブラウザで MetaMask のアイコンをクリックします。サインインして、テストネットワークを選択します。
 
-3. Get some test ETHER for that network. If, for example, you had selected Goerli Network then, search for `Goerli faucet` and you'll find a website where you can get some test ether. 
+3. そのネットワークのテスト用ETHERを入手する。例えば、Goerli Networkを選択した場合、「Goerli faucet」と検索すると、テスト用エーテルを入手できるサイトが表示されます。
 
-2. Go back to Remix. In  **Deploy & Run**, in the **Environment** pulldown, choose **Injected Web3**.
+2. Remixに戻ります。Deploy & Run** で、**Environment** プルダウンから、**Injected Web3** を選択します。
 
-3. See if you can deploy your compiled 2_Owner.sol to the test net that you have just chosen. If you see the 2_Owner.sol as a choice in the **CONTRACT** select box, click the **Deploy** button.  
-    - If you see nothing in this select box, you'll need to compile ballot.sol again.  And if you do need to compile 2_Owner.sol again,  make sure it is the active file in the **editor** and then go to the **Solidity Compiler** to compile it.  
+3. コンパイルした2_Owner.solを、先ほど選択したテストネットにデプロイできるかどうか確認します。2_Owner.solが**CONTRACT**セレクトボックスの選択肢として表示されている場合は、**Deploy**ボタンをクリックします。 
 
-    - And then, go to the **Deploy & Run** plugin and deploy to the network you've chosen in step 2.
+    - このセレクトボックスに何も表示されない場合は、再度ballot.solをコンパイルする必要があります。 また、2_Owner.solを再度コンパイルする必要がある場合は、**editor**でアクティブなファイルであることを確認し、**Solidity Compiler**でコンパイルしてください。 
 
-5. You'll see the MetaMask popup asking you to pay for the transactions.
+    - そして、**Deploy & Run** プラグインに移動し、ステップ 2 で選択したネットワークにデプロイします。
 
-And with that you have finished this tutorial.  You now have experience with opening, compiling, deploying and interacting with Smart Contracts in Remix IDE.
+5. 5. MetaMaskのポップアップが表示され、トランザクションの支払いを要求されます。
+
+これでこのチュートリアルは終了です。 これで、Remix IDEでスマートコントラクトを開き、コンパイルし、デプロイし、操作することができるようになりsました。

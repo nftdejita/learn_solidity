@@ -1,21 +1,21 @@
-This section will give a short introduction to functions and teach you how to use them to read from and write to a state variable.
+このセクションでは、関数の概要を簡単に説明し、関数を使用して状態変数の読み取りと書き込みを行う方法を説明します。
 
-As in other languages, we use functions in Solidity to create modular, reusable code. However, Solidity functions have some particularities. 
+他の言語と同様に、Solidityの関数を使用して、モジュール式の再利用可能なコードを作成します。ただし、Solidity関数にはいくつかの特殊性があります。
 
-Solidity functions can be split into two types:
-1. Functions that modify the state of the blockchain, like writing to a state variable. In this contract, the `set` function (line 9) changes the state variable `num`.
-2. Functions that don't modify the state of the blockchain. These functions are marked `view` or `pure`. For example, in this contract, the `get` function (line 14) marked `view` that only returns `num` does not change the state.
+Solidity関数は、次の2つのタイプに分けることができます。
+1. 状態変数への書き込みなど、ブロックチェーンの状態を変更する関数。このコントラクトでは、 `set`関数（9行目）が状態変数`num`を変更します。
+2. ブロックチェーンの状態を変更しない関数。これらの関数は、`view`または`pure`とマークされています。たとえば、このコントラクトでは、`num`のみを返す`view`とマークされた`get`関数（14行目）は状態を変更しません。
 
-To define a function, use the `function` keyword followed by a unique name. 
+関数を定義するには、`function`キーワードに続けて一意の名前を使用します。
 
-If the function takes inputs like our `set` function (line 9), you must specify the parameter types and names. A common convention is to use an underscore as a prefix for the parameter name to distinguish them from state variables. 
+関数が`set`関数（9行目）のように入力を受け取る場合は、パラメーターのタイプと名前を指定する必要があります。一般的な規則は、パラメータ名のプレフィックスとしてアンダースコアを使用して、状態変数と区別することです。
 
-You can then set the visibility of a function and declare them `view` or `pure` as we do for the `get` function if they don't modify the state. Our `get` function also returns values, so we have to specify the return types. In this case, it's a `uint` since the state variable `num` that the function returns is a `uint`. 
+次に、関数の可視性を設定し、状態を変更しない場合は、`get`関数の場合と同じように`view`または`pure`を宣言できます。 `get`関数も値を返すため、戻り値のタイプを指定する必要があります。この場合、関数が返す状態変数`num`は`uint`であるため、これは`uint`です。
 
-We will explore the particularities of Solidity functions in more detail in the following sections.
+次のセクションでは、Solidity関数の特殊性について詳しく説明します。
 
-<a href="https://www.youtube.com/watch?v=Mm6834AAY00" target="_blank">Watch a video tutorial on Functions</a>.
+<a href="https://www.youtube.com/watch?v=Mm6834AAY00" target="_blank">関数に関するビデオチュートリアルをご覧ください</a>。
 
-## ⭐️ Assignment
-1. Create a public state variable called `b` that is of type `bool` and initialize it to `true`.
-2. Create a public function called `get_b` that returns the value of `b`.
+## ⭐️問題
+1. タイプ`bool`の`b`というパブリック状態変数を作成し、それを`true`に初期化します。
+2. `b`の値を返す`get_b`というパブリック関数を作成します。

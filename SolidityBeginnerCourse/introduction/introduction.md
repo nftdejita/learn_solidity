@@ -1,31 +1,31 @@
-Welcome to this interactive Solidity course for beginners.
+初心者向けのこのインタラクティブなSolidityコースへようこそ。
 
-In this first section, we will give you a short preview of the concepts we will cover in this course, look at an example smart contract, and show you how you can interact with this contract in the Remix IDE.
+この最初のセクションでは、このコースで取り上げる概念の簡単なプレビューを示し、スマートコントラクトの例を見て、RemixIDEでこのコントラクトを操作する方法を示します。
 
-This contract is a counter contract that has the functionality to increase, decrease, and return the state of a counter variable.
+このコントラクトは、カウンター変数の状態を増減および返す機能を備えたカウンターコントラクトです。
 
-If we look at the top of the contract, we can see some information about the contract like the license (line 1), the Solidity version (line 2), as well as the keyword `contract` and it's name, `Counter` (line 4). We will cover these concepts in the next section about the **Basic Syntax**.
+コントラクトの上部を見ると、ライセンス（1行目）、Solidityバージョン（2行目）、キーワード「contract」とその名前「Counter」（1行目）などのコントラクトに関する情報が表示されます。 4行目）。これらの概念については、**基本構文**に関する次のセクションで説明します。
 
-With `uint public count` (line 5) we declare a state variable of the type `uint` with the visibility `public`. We will cover these concepts in our sections about **Variables**, **Primitive Data Types**, and **Visibility**.  
+`uint public count`（5行目）を使用して、可視性`public`を持つタイプ`uint`の状態変数を宣言します。これらの概念については、**変数**、**プリミティブデータ型**、および**可視性**に関するセクションで説明します。
 
-We then create a `get` function (line 8) that is defined with the `view` keyword and returns a `uint` type. Specifically, it returns the `count` variable. This contract has two more functions, an `inc` (line 13) and `dec` (line 18) function that increases or decreases our count variable.
-We will talk about these concepts in our sections about **Functions - Reading and Writing to a State Variable** and **Functions - View and pure**.
+次に、 `view`キーワードで定義され、`uint`型を返す`get`関数（8行目）を作成します。具体的には、`count`変数を返します。このコントラクトには、さらに2つの関数があります。`inc`（13行目）と` dec`（18行目）の関数で、カウント変数を増減します。
+これらの概念については、**関数-状態変数の読み取りと書き込み**および**関数-表示と純粋**に関するセクションで説明します。
 
-## Compile and Deploy through Remix
+## リミックスによるコンパイルとデプロイ
 
 **GIF** Interacting with the contract:
-<img src="https://github.com/dacadeorg/remixMedia/blob/main/solidity-beginner-course/introduction.gif?raw=true" alt="Compile and deploy contract" width="300"/>
+<img src = "https://github.com/dacadeorg/remixMedia/blob/main/solidity-beginner-course/introduction.gif?raw=true" alt="コントラクトのコンパイルとデプロイ" width= "300" />
 
-1. We can compile your `Counter` contract in the "Solidity compiler" module of the Remix IDE.
+1. RemixIDEの「Soliditycompiler」モジュールで`Counter`コントラクトをコンパイルできます。
 
-2. In the "Deploy & run transactions" module, we select our contract "Counter" in the contract input field and click on the "Deploy" button.
+2. 「Deploy＆runtransactions」モジュールで、コントラクト入力フィールドでコントラクト「Counter」を選択し、「Deploy」ボタンをクリックします。
 
-3. We expand the token contract functions in the IDE, and test its `get`, `inc`, and `dec` functions.
+3.  IDEでトークンコントラクト関数を展開し、その `get`、` inc`、および`dec`関数をテストします。
 
-## ⭐️ Assignment
-Throughout this course, we will give you assignments to test and consolidate your newly acquired knowledge.
+## ⭐️問題
+このコース全体を通して、新しく習得した知識をテストおよび統合するための課題を提供します。
 
-Your first assignment is to:
-1. Compile this contract.
-2. Deploy it to the JavaScript VM.
-3. Interact with your contract.
+最初の割り当ては次のとおりです。
+1. このコントラクトをコンパイルします。
+2. それをJavaScriptVMにデプロイします。
+3. コントラクトを処理します。

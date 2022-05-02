@@ -1,25 +1,25 @@
-As we have seen in the previous section, executing code via transactions on the Ethereum Network costs transaction fees in the form of Ether. The amount of fees that have to be paid to execute a transaction depends on the amount of *gas* that the execution of the transaction costs.
+前のセクションで見たように、イーサリアムネットワークでのトランザクションを介してコードを実行するには、イーサリアムの形式でトランザクション料金がかかります。取引を実行するために支払わなければならない料金の額は、取引の実行にかかる*ガス*の量によって異なります。
 
-### Gas
-*Gas* is the unit that measures the amount of computational effort that is required to execute a specific operation on the Ethereum network.
+### ガス
+*ガス*は、イーサリアムネットワークで特定の操作を実行するために必要な計算量を測定する単位です。
 
-### Gas price
-The *gas* that fuels Ethereum is sometimes compared to the gas that fuels a car. The amount of gas your car consumes is mostly the same, but the price you pay for gas depends on the market.
+### ガス価格
+イーサリアムに燃料を供給する*ガス*は、車に燃料を供給するガスと比較されることがあります。あなたの車が消費するガスの量はほとんど同じですが、あなたがガスに支払う価格は市場によって異なります。
 
-Similarly, the amount of *gas* that a transaction requires is always the same for the same computational work that is associated with it. However the price that the sender of the transaction is willing to pay for the *gas* is up to them. Transactions with higher *gas prices* are going through faster; transactions with very low *gas prices* might not go through at all.
+同様に、トランザクションに必要な*ガス*の量は、それに関連付けられている同じ計算作業で常に同じです。ただし、トランザクションの送信者が*ガス*に対して喜んで支払う価格は彼ら次第です。 *ガス価格*が高い取引はより速く進行しています。 *ガス価格*が非常に低い取引は、まったく行われない可能性があります。
 
-When sending a transaction, the sender has to pay the *gas* fee (gas_price * gas) upon execution of the transaction. If *gas* is left over after the execution is completed, the sender gets refunded.
+トランザクションを送信する場合、送信者はトランザクションの実行時に*gas*料金（gas_price *gas*）を支払う必要があります。実行完了後に*gas*が残っている場合、送信者は返金されます。
 
-*Gas* prices are denoted in gwei.
+*ガス*の価格はgweiで表されます。
 
-### Gas limit
-When sending a transaction, the sender specifies the maximum amount of gas that they are willing to pay for. If they set the limit too low, their transaction can run out of *gas* before being completed, reverting any changes being made. In this case, the *gas* was consumed and can’t be refunded.
+### ガス制限
+トランザクションを送信するとき、送信者は彼らが支払うことをいとわないガスの最大量を指定します。制限を低く設定しすぎると、トランザクションが完了する前に*ガス*が不足し、行われた変更が元に戻される可能性があります。この場合、*ガス*は消費されたため、返金できません。
 
-Learn more about *gas* on <a href="https://ethereum.org/en/developers/docs/gas/" target="_blank">ethereum.org</a>.
+*gas*の詳細については、<a href="https://ethereum.org/en/developers/docs/gas/" target="_blank">ethereum.org</a>をご覧ください。
 
-<a href="https://www.youtube.com/watch?v=oTS9uxU6cAM" target="_blank">Watch a video tutorial on Gas and Gas Price</a>.
+<a href="https://www.youtube.com/watch?v=oTS9uxU6cAM" target="_blank">ガスとガス価格に関するビデオチュートリアルをご覧ください。</a>
 
-## ⭐️ Assignment
-Create a new `public` state variable in the `Gas` contract called `cost` of the type `uint`. Store the value of the gas cost for deploying the contract in the new variable, including the cost for the value you are storing.
+## ⭐️問題
+タイプ`uint`の`cost`と呼ばれる`Gas`コントラクトに新しい`public`状態変数を作成します。コントラクトを展開するためのガスコストの値を、保存している値のコストを含めて、新しい変数に保存します。
 
-Tip: You can check in the Remix terminal the details of a transaction, including the gas cost. You can also use the Remix plugin *Gas Profiler* to check for the gas cost of transactions.
+ヒント：ガス代などの取引の詳細は、リミックス端末で確認できます。 Remixプラグイン*GasProfiler *を使用して、トランザクションのガスコストを確認することもできます。

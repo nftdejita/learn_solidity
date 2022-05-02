@@ -1,75 +1,77 @@
-In this section, we will learn how a contract can send and receive Ether.
+このセクションでは、コントラクトがEtherを送受信する方法を学習します。
 
-### Sending Ether
-We have three different options to transfer Ether: `transfer()`, `send()` and `call()`.
+### Etherの送信
+Etherを転送するには、 `transfer（）`、 `send（）`、 `call（）`の3つのオプションがあります。
 
 #### **transfer**
-`<address payable>.transfer(uint256 amount)`
-* `transfer()` throws an exception on failure 
-* Forwards a fixed 2300 gas stipend
+`<支払われる住所>.transfer（uint256金額）`
+* `transfer（）`は失敗時に例外をスローします
+* 固定の2300ガス給付金を転送します
 
-An example of `transfer()` can be seen in the `SendEther` contract (line 35).
-**`Transfer()` is not recommended to be used anymore.**
+`transfer（）`の例は、 `SendEther`コントラクト（35行目）にあります。
+
+**`Transfer（）`の使用はお勧めしません。**
 
 #### **send**
-`<address payable>.send(uint256 amount) returns (bool)`
-* `send()` returns false on failure 
-* Forwards a fixed 2300 gas stipend
+`<支払われるアドレス>.send（uint256amount）は（bool）を返します`
+* `send（）`は失敗するとfalseを返します
+* 固定の2300ガス給付金を転送します
 
-An example of `send()` can be seen in the `SendEther` contract (line 41).
-**`Send()` is not recommended to be used anymore.**
+`send（）`の例は、 `SendEther`コントラクト（41行目）にあります。
+
+**`Send（）`の使用はお勧めしません。**
 
 #### **call**
-`<address>.call(bytes memory) returns (bool, bytes memory)`
-* `call()` returns false on failure 
-* Forwards the maximum amount of gas, but this is adjustable
+`<address> .call（bytes memory）returns（bool、bytes memory）`
+* `call（）`は失敗するとfalseを返します
+* 最大量のガスを転送しますが、これは調整可能です
 
-An example of `call()` can be seen in the `SendEther` contract (line 48).
-`Call()` is currently recommended if you are transfering Ether.
+`call（）`の例は、 `SendEther`コントラクト（48行目）にあります。
+現在、Etherを転送する場合は、 `Call（）`が推奨されます。
 
-The reason `transfer()` and `send()` were introduced was to guard against *reentry attacks* by limiting the forwarded gas to 2300, which would be insufficient to make a reentrant call that can modify storage.
+`transfer（）`と `send（）`が導入された理由は、転送されたガスを2300に制限することで、*再突入攻撃*を防ぐためでした。
 
-As we discussed in the last section, each operation on Ethereum has a specific cost associated with it. Certain operations have become more cost intensive over time, so the gas costs associated with them are also raised. When gas costs for operations are subject to change it is not good to use a hardcoded gas amount like transfer(), and send() do.
+前のセクションで説明したように、イーサリアムの各操作には特定のコストが関連付けられています。特定の操作は時間の経過とともによりコストがかかるようになったため、それらに関連するガスコストも上昇します。操作のガスコストが変更される可能性がある場合、transfer（）やsend（）のようにハードコードされたガス量を使用するのは適切ではありません。
 
-That’s why `call()` instead of `transfer()` is now recommended to send Ether.
+そのため、Etherの送信には `transfer（）`ではなく `call（）`が推奨されるようになりました。
 
-Learn more about the subject in this <a href="https://consensys.net/diligence/blog/2019/09/stop-using-soliditys-transfer-now/" target="_blank">Consensys blog post</a>.
+このテーマの詳細については、この<a href="https://consensys.net/diligence/blog/2019/09/stop-using-soliditys-transfer-now/" target="_blank">Consensysブログ投稿</a>をご覧ください。
 
 
-### Reentrancy attack
-A *reentrancy attack* occurs when a function makes an external call to an untrusted contract and the attacker uses the contract to make recursive calls back to the original function before it finishes its execution. Through this method, the attacker can drain funds and manipulate data in unintended ways.
+### リエントラント攻撃
+*再入可能攻撃*は、関数が信頼できないコントラクトを外部呼び出しし、攻撃者がそのコントラクトを使用して、実行が完了する前に元の関数に再帰呼び出しを行う場合に発生します。この方法により、攻撃者は資金を使い果たし、意図しない方法でデータを操作する可能性があります。
 
-To guard against a *reentrancy attack*, all state changes should be made before calling an external contract. This is also called the <a href="https://docs.soliditylang.org/en/latest/security-considerations.html#re-entrancy" target="_blank">Checks-Effects-Interactions</a> pattern.
+*再入可能攻撃*を防ぐために、外部コントラクトを呼び出す前にすべての状態変更を行う必要があります。これは、<a href="https://docs.soliditylang.org/en/latest/security-considerations.html#re-entrancy"  target="_blank">Checks-Effects-Interactions</a>パターンとも呼ばれます。 。
 
-Another way to prevent reentrancy is to use a *Reentrancy Guard* that checks for such calls and rejects them. You can see an example of this in the contract in our modifier section or a more gas-efficient version on <a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/security/ReentrancyGuard.sol" target="_blank">Open Zepplin</a>.
+再入可能を防ぐ別の方法は、そのような呼び出しをチェックして拒否する*再入可能ガード*を使用することです。この例は、モディファイアセクションのコントラクト、または<a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/security/ReentrancyGuardのよりガス効率の高いバージョンで確認できます。 .sol " target =" _ blank">Zepplinを開きます</a>。
 
 ### Receiving Ether
-If we want to enable a contract to receive Ether without a function being called, we need to create a `receive` function (line 22) or a `fallback` function (line 25); otherwise, the Ether will be rejected, and the contract will throw an exception.
+関数を呼び出さずにコントラクトがEtherを受信できるようにする場合は、 `receive`関数（22行目）または`fallback`関数（25行目）を作成する必要があります。それ以外の場合、Etherは拒否され、コントラクトは例外をスローします。
 
-The `receive` function is executed on calls with empty calldata (e.g. plain Ether transfers via send() or transfer()), while the fallback function is executed on calls with calldata. If no receive function exists but a fallback function does, calls with empty calldata will also use the fallback function.
+`receive`関数は、空のcalldataを使用する呼び出しで実行されます（たとえば、send（）またはtransfer（）を介したプレーンなEther転送）。一方、フォールバック関数は、calldataを使用する呼び出しで実行されます。受信関数は存在しないがフォールバック関数が存在する場合、calldataが空の呼び出しもフォールバック関数を使用します。
 
 ### Payable function modifier
-The `payable` function modifier allows a function to receive Ether.
+`payable`関数修飾子を使用すると、関数はEtherを受け取ることができます。
 
-The `receive` function (line 22) needs to be `payable`. If you delete the `payable` modifier you will get an error from the compiler. If you delete the `payable` modifier from the `fallback` function (line 25) it will compile, but it won’t be able to receive Ether.
-The functions `sendViaTransfer`, `sendViaSend`, and `sendViaCall` (lines 33, 38, and 45) also need to be `payable` in order to receive Ether.
+`receive`関数（22行目）は`payable`である必要があります。 `payable`修飾子を削除すると、コンパイラからエラーが発生します。 `fallback`関数から`payable`修飾子を削除すると（25行目）、コンパイルされますが、Etherを受信できなくなります。
+関数`sendViaTransfer`、` sendViaSend`、および `sendViaCall`（33、38、および45行目）も、Etherを受信するために`payable`である必要があります。
 
 ### Payable address
-Solidity makes a distinction between two different flavors of the address data type: address and address payable.
+Solidityは、アドレスデータ型の2つの異なるフレーバー（アドレスと支払い可能なアドレス）を区別します。
 
-`address`: Holds a 20-byte value.
-`address payable`: Holds a 20-byte value and can receive Ether via its members: transfer and send.
+`address`：20バイトの値を保持します。
+`address payable`：20バイトの値を保持し、そのメンバーを介してEtherを受信できます：転送と送信。
 
-If you change the parameter type for the functions `sendViaTransfer` and `sendViaSend` (line 33 and 38) from `payable address` to `address`, you won’t be able to use `transfer()` (line 35) or `send()` (line 41).
+関数`sendViaTransfer`および`sendViaSend`（33行目および38行目）のパラメータータイプを `payableaddress`から`address`に変更すると、 `transfer（）`（35行目）または`send（）`（41行目）。
 
-<a href="https://www.youtube.com/watch?v=_5vGaqgzlG8" target="_blank">Watch a video tutorial on Sending Ether</a>.
+<a href="https://www.youtube.com/watch?v=_5vGaqgzlG8" target="_blank">Etherの送信に関するビデオチュートリアルをご覧ください</a>。
 
-## ⭐️ Assignment
-Build a charity contract that receives Ether that can be withdrawn by a beneficiary.
+## ⭐️問題
+受益者が撤回できるEtherを受け取るチャリティーコントラクトを作成します。
 
-1. Create a contract called `Charity`.
-2. Add a public state variable called `owner` of the type address.
-3. Create a donate function that is public and payable without any parameters or function code.
-4. Create a withdraw function that is public and sends the total balance of the contract to the `owner` address.
+1. `Charity`というコントラクトを作成します。
+2. タイプaddressの`owner`と呼ばれるパブリック状態変数を追加します。
+3. パラメータや関数コードなしで公開され、支払い可能な寄付関数を作成します。
+4. 公開されている引き出し関数を作成し、コントラクトの合計残高を「所有者」アドレスに送信します。
 
-Tip: Test your contract by deploying it from one account and then sending Ether to it from another account. Then execute the withdraw function.
+ヒント：1つのアカウントからコントラクトを展開して、コントラクトをテストします。

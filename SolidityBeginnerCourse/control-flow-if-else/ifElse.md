@@ -1,28 +1,28 @@
-Solidity supports different control flow statements that determine which parts of the contract will be executed. The conditional *If/Else statement* enables contracts to make decisions depending on whether boolean conditions are either `true` or `false`.
+Solidityは、コントラクトのどの部分が実行されるかを決定するさまざまな制御フローステートメントをサポートします。条件付き*If/ Elseステートメント*を使用すると、ブール条件が`true`または`false`のどちらであるかに応じてコントラクトが決定を下すことができます。
 
-Solidity differentiates between three different If/Else statements: `if`, `else`, and `else if`.
+Solidityは、3つの異なるIf / Elseステートメント（ `if`、` else`、および `elseif`）を区別します。
 
 ### if
-The `if` statement is the most basic statement that allows the contract to perform an action based on a boolean expression. 
+`if`ステートメントは、コントラクトがブール式に基づいてアクションを実行できるようにする最も基本的なステートメントです。
 
-In this contract’s `foo` function (line 5) the if statement (line 6) checks if `x` is smaller than `10`. If the statement is true, the function returns `0`.
+このコントラクトの`foo`関数（5行目）では、ifステートメント（6行目）が`x`が`10`よりも小さいかどうかをチェックします。ステートメントがtrueの場合、関数は`0`を返します。
 
 ### else
-The `else` statement enables our contract to perform an action if conditions are not met.
+`else`ステートメントを使用すると、条件が満たされない場合にコントラクトでアクションを実行できます。
 
-In this contract, the `foo` function uses the `else` statement (line 10) to return `2` if none of the other conditions are met.
+このコントラクトでは、`foo`関数は`else`ステートメント（10行目）を使用して、他の条件が満たされない場合に`2`を返します。
 
 ### else if
-With the `else if` statement we can combine several conditions.
+`else if`ステートメントを使用すると、いくつかの条件を組み合わせることができます。
 
-If the first condition (line 6) of the foo function is not met, but the condition of the `else if` statement (line 8) becomes true, the function returns `1`.
+foo関数の最初の条件（6行目）が満たされていないが、 `else if`ステートメント（8行目）の条件が真になると、関数は`1`を返します。
 
-<a href="https://www.youtube.com/watch?v=Ld8bFWXLSfs" target="_blank">Watch a video tutorial on the If/Else statement</a>.
+<a href="https://www.youtube.com/watch?v=Ld8bFWXLSfs" target="_blank"> If/Elseステートメントのビデオチュートリアルをご覧ください</a>。
 
-## ⭐️ Assignment
-Create a new function called `evenCheck` in the `IfElse` contract: 
-- That takes in a `uint` as an argument.
-- The function returns `true` if the argument is even, and `false` if the argument is odd.
-- Use a ternery operator to return the result of the `evenCheck` function.
+## ⭐️問題
+`If​​Else`コントラクトに`evenCheck`という新しい関数を作成します。
+- それは引数として`uint`を取ります。
+- この関数は、引数が偶数の場合は `true`を返し、引数が奇数の場合は`false`を返します。
+- ternery演算子を使用して、`evenCheck`関数の結果を返します。
 
-Tip: The modulo (%) operator produces the remainder of an integer division.
+ヒント：モジュラー（％）演算子は、整数除算の余りを生成します。

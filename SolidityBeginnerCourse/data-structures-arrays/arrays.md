@@ -1,37 +1,39 @@
-In the next sections, we will look into the data structures that we can use to organize and store our data in Solidity.
+次のセクションでは、Solidity でデータを整理して保存するために使用できるデータ構造について説明します。
 
-*Arrays*, *mappings* and *structs* are all *reference types*. Unlike *value types* (e.g. *booleans* or *integers*) reference types don't store their value directly. Instead, they store the location where the value is being stored. Multiple reference type variables could reference the same location, and a change in one variable would affect the others, therefore they need to be handled carefully.
+*配列*、*マッピング*、および*構造体*は、すべて*参照型です*。値型 (例: *booleans* や *integer*) とは異なり、参照型は値を直接保存しません。その代わり、値が格納されている場所を格納します。複数の参照型変数が同じ場所を参照する可能性があり、1つの変数の変更は他の変数に影響を与えるため、慎重に扱う必要があります。
 
-In Solidity, an array stores an ordered list of values of the same type that are indexed numerically.
+Solidity では、配列は同じ型の値の順序付きリストを格納し、数値でインデックス付けされます。
 
-There are two types of arrays, compile-time *fixed-size* and *dynamic arrays*. For fixed-size arrays, we need to declare the size of the array before it is compiled. The size of dynamic arrays can be changed after the contract has been compiled.
+配列には、コンパイル時の *固定サイズ* と *動的配列* の 2 種類があります。固定サイズ配列の場合、コンパイル前に配列のサイズを宣言する必要があります。動的配列のサイズは，コンパイル後に変更することができます．
 
-### Declaring arrays
-We declare a fixed-size array by providing its type, array size (as an integer in square brackets), visibility, and name (line 9).
+### 配列の宣言
+固定サイズの配列を宣言するには，配列の型，配列サイズ（角括弧内の整数），可視性，名前を指定します（9行目）．
 
-We declare a dynamic array in the same manner. However, we don’t provide an array size and leave the brackets empty (line 6).
+動的配列も同様に宣言する．ただし、配列のサイズは指定せず、括弧の中は空白にしています（6行目）。
 
-### Initializing arrays
-We can initialize the elements of an array all at once (line 7), or initiate new elements one by one (arr[0] = 1;). If we declare an array, we automatically initialize its elements with the default value 0 (line 9).
+### 配列の初期化
+配列の要素は，一度に初期化することもできますし（7行目），一つずつ初期化することもできます（arr[0] = 1；）．配列を宣言すると、その要素は自動的にデフォルト値0に初期化されます（9行目）。
 
-### Accessing array elements
-We access elements inside an array by providing the name of the array and the index in brackets (line 12).
+### 配列の要素にアクセスする
+配列の要素にアクセスするには、配列の名前とインデックスを大括弧で囲んで指定します（12行目）。
 
-### Adding array elements
-Using the `push()` member function, we add an element to the end of a dynamic array (line 25). 
+### 配列要素の追加
+メンバ関数 `push()` を用いて、動的配列の末尾に要素を追加する (25行目)。
 
-### Removing array elements
-Using the `pop()` member function, we delete the last element of a dynamic array (line 31). 
+### 配列の要素の削除
+`pop()` メンバ関数を用いて、動的配列の最後の要素を削除しています (31行目)。
 
-We can use the `delete` operator to remove an element with a specific index from an array (line 42). 
-When we remove an element with the `delete` operator all other elements stay the same, which means that the length of the array will stay the same. This will create a gap in our array. 
-If the order of the array is not important, then we can move the last element of the array to the place of the deleted element (line 46), or use a mapping. A mapping might be a better choice if we plan to remove elements in our data structure.
+`delete` 演算子を使うと、配列から特定のインデックスの要素を削除することができます (42行目)。
 
-### Array length
-Using the length member, we can read the number of elements that are stored in an array (line 35).
+`delete` 演算子で要素を削除しても、他の要素はすべてそのままなので、配列の長さも変わりません。つまり、配列の長さは変わらないということです。これでは配列に隙間ができてしまいます。
 
-<a href="https://www.youtube.com/watch?v=vTxxCbwMPwo" target="_blank">Watch a video tutorial on Arrays</a>.
+配列の順番が重要でない場合は、配列の最後の要素を削除された要素の場所に移動するか (46行目)、マッピングを使用することができます。データ構造内の要素を削除する場合は、マッピングを使用する方がよいでしょう。
 
-## ⭐️ Assignment
-1. Initialize a public fixed-sized array called `arr3` with the values 0, 1, 2. Make the size as small as possible.
-2. Change the `getArr()` function to return the value of `arr3`.
+### 配列の長さ
+メンバーの`length`を使用して、配列に格納されている要素の数を読み取ることができます（35行目）。
+
+<a href="https://www.youtube.com/watch?v=vTxxCbwMPwo" target="_blank">配列に関するビデオチュートリアルをご覧ください</a>.
+
+## ⭐️ 問題
+1. `arr3`と呼ばれるパブリック固定サイズの配列を値0、1、2で初期化します。サイズをできるだけ小さくします。
+2. `getArr（）`関数を変更して、`arr3`の値を返します。

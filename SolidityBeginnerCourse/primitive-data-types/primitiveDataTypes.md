@@ -1,28 +1,28 @@
-In this section, we will show you Solidity’s primitive data types, how to declare them, and their characteristics.
+このセクションでは、Solidityのプリミティブデータ型、それらを宣言する方法、およびそれらの特性を示します。
 
-### bool
-You can declare data a boolean type by using the keyword ‘bool’. Booleans can either have the value `true` or `false`.
+### ブール
+キーワード「bool」を使用して、データをブール型として宣言できます。ブール値は、値`true`または`false`のいずれかを持つことができます。
 
 ### uint
-We use  the keywords `uint` and `uint8` to `uint256` to declare an *unsigned integer type* (they don’t have a sign, unlike -12, for example). Uints are integers that are positive or zero and range from 8 bits to 256 bits. The type `uint` is the same as `uint256`.
+キーワード`uint`および`uint8`から`uint256`を使用して、*符号なし整数型*を宣言します（たとえば、-12とは異なり、符号はありません）。 Uintは、正またはゼロで、8ビットから256ビットの範囲の整数です。タイプ`uint`は`uint256`と同じです。
 
 ### int
-We use the keywords `int` and `int8` to `int256` to declare an integer type. Integers can be positive, negative, or zero and range from 8 bits to 256 bits. The type `int` is the same as `int256`.
+整数型を宣言するには、キーワード`int`および`int8`から`int256`を使用します。整数は、正、負、またはゼロで、8ビットから256ビットの範囲です。タイプ`int`は`int256`と同じです。
 
 ### address
-Variables of the type `address` hold a 20-byte value, which is the size of an Ethereum address. There is also a special kind of Ethereum address, `address payable`, which can receive ether from the contract.
+タイプ`address`の変数は、イーサリアムアドレスのサイズである20バイトの値を保持します。コントラクトからイーサリアムを受け取ることができる特別な種類のイーサリアムアドレス、「アドレス支払い」もあります。
 
-All these data types have default values, as shown in the contract (line 29).
+コントラクト（29行目）に示されているように、これらすべてのデータ型にはデフォルト値があります。
 
-You can learn more about these data types as well as *Fixed Point Numbers*, *Byte Arrays*, *Strings*, and more in the <a href="https://docs.soliditylang.org/en/latest/types.html" target="_blank">Solidity documentation</a>.
+これらのデータ型の詳細と、*固定ポイント番号*、*バイト配列*、*文字列*などについては、<a href="https://docs.soliditylang.org/en/latest/types.html" target ="_blank">Solidityドキュメントをご覧ください。</a>
 
-Later in the course, we will look at data structures like **Mappings**, **Arrays**, **Enums**, and **Structs**.
+コースの後半では、**マッピング**、**配列**、**列挙体**、**構造体**などのデータ構造について説明します。
 
-<a href="https://www.youtube.com/watch?v=8Tj-Th_S7NU" target="_blank">Watch a video tutorial on Primitive Data Types</a>.
+<a href="https://www.youtube.com/watch?v=8Tj-Th_S7NU" target="_blank">プリミティブデータ型に関するビデオチュートリアルをご覧ください。</a>
 
-## ⭐️ Assignment
-1. Create a new variable `newAddr` that is a `public` `address` and give it a value that is not the same as the available variable `addr`.
-2. Create a `public` variable called `neg` that is a negative number, decide upon the type.
-3. Create a new variable, `newU` that has the smallest `uint` size type and the smallest `uint` value and is `public`.
+## ⭐️割り当て
+1.  `public``address`である新しい変数`newAddr`を作成し、使用可能な変数`addr`と同じではない値を指定します。
+2. 負の数である`neg`と呼ばれる`public`変数を作成し、タイプを決定します。
+3. 最小の`uint`サイズタイプと最小の`uint`値を持ち、`public`である新しい変数`newU`を作成します。
 
-Tip: Look at the other address in the contract or search the internet for an Ethereum address.
+ヒント：コントラクトの他のアドレスを確認するか、インターネットでイーサリアムアドレスを検索してください。

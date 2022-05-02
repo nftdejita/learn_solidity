@@ -1,32 +1,32 @@
-In Solidity, *mappings* are a collection of key types and corresponding value type pairs.
+Solidityでは、*マッピング*はキータイプと対応する値タイプのペアのコレクションです。
 
-The biggest difference between a mapping and an array is that you can't iterate over mappings. If we don't know a key we won't be able to access its value. If we need to know all of our data or iterate over it, we should use an array. 
+マッピングと配列の最大の違いは、マッピングを反復処理できないことです。キーがわからない場合、その値にアクセスすることはできません。すべてのデータを知る必要がある場合、またはデータを反復処理する必要がある場合は、配列を使用する必要があります。
 
-If we want to retrieve a value based on a known key we can use a mapping (e.g. addresses are often used as keys). Looking up values with a mapping is easier and cheaper than iterating over arrays. If arrays become too large, the gas cost of iterating over it could become too high and cause the transaction to fail.
+既知のキーに基づいて値を取得する場合は、マッピングを使用できます（たとえば、アドレスはキーとしてよく使用されます）。マッピングを使用して値を検索する方が、配列を反復処理するよりも簡単で安価です。配列が大きくなりすぎると、配列を反復処理するためのガスコストが高くなりすぎて、トランザクションが失敗する可能性があります。
 
-We could also store the keys of a mapping in an array that we can iterate over.
+マッピングのキーを、反復可能な配列に格納することもできます。
 
-### Creating mappings
-Mappings are declared with the syntax `mapping(KeyType => ValueType) VariableName`.
-The key type can be any built-in value type or any contract, but not a reference type. The value type can be of any type.
+### マッピングの作成
+マッピングは、構文 `mapping（KeyType => ValueType）VariableName`で宣言されます。
+キータイプは、任意の組み込み値タイプまたは任意のコントラクトにすることができますが、参照型にすることはできません。値の型はどの型でもかまいません。
 
-In this contract, we are creating the public mapping `myMap` (line 6) that associates the key type `address` with the value type `uint`.
+このコントラクトでは、キータイプ`address`を値タイプ`uint`に関連付けるパブリックマッピング`myMap`（6行目）を作成しています。
 
-### Accessing values
-The syntax for interacting with key-value pairs of mappings is similar to that of arrays.
-To find the value associated with a specific key, we provide the name of the mapping and the key in brackets (line 11). 
+### 値へのアクセス
+マッピングのキーと値のペアを操作するための構文は、配列の構文と似ています。
+特定のキーに関連付けられている値を見つけるために、マッピングの名前とキーを角かっこで囲んで示します（11行目）。
 
-In contrast to arrays, we won't get an error if we try to access the value of a key whose value has not been set yet. When we create a mapping, every possible key is mapped to the default value 0.
+配列とは対照的に、値がまだ設定されていないキーの値にアクセスしようとしても、エラーは発生しません。マッピングを作成すると、可能なすべてのキーがデフォルト値0にマップされます。
 
-### Setting values
-We set a new value for a key by providing the mapping’s name and key in brackets and assigning it a new value (line 16).
+### 設定値
+マッピングの名前とキーを角かっこで囲み、新しい値を割り当てることで、キーに新しい値を設定します（16行目）。
 
-### Removing values
-We can use the delete operator to delete a value associated with a key, which will set it to the default value of 0. As we have seen in the arrays section.
+### 値の削除
+削除演算子を使用して、キーに関連付けられた値を削除できます。これにより、キーがデフォルト値の0に設定されます。配列のセクションで説明したように。
 
-<a href="https://www.youtube.com/watch?v=tO3vVMCOts8" target="_blank">Watch a video tutorial on Mappings</a>.
+<a href="https://www.youtube.com/watch?v=tO3vVMCOts8" target="_blank">マッピングに関するビデオチュートリアルをご覧ください</a>。
 
-## ⭐️ Assignment
-1. Create a public mapping `balances` that associates the key type `address` with the value type `uint`.
-2. Change the functions `get` and `remove` to work with the mapping balances.
-3. Change the function `set` to create a new entry to the balances mapping, where the key is the address of the parameter and the value is the balance associated with the address of the parameter.
+## ⭐️問題
+1. キータイプ`address`を値タイプ`uint`に関連付けるパブリックマッピング`balances`を作成します。
+2. マッピングバランスで機能するように関数`get`と`remove`を変更します。
+3. 関数`set`を変更して、残高マッピングへの新しいエントリを作成します。ここで、キーはパラメータのアドレスであり、値はパラメータのアドレスに関連付けられた残高です。

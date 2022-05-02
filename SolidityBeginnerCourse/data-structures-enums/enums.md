@@ -1,28 +1,33 @@
-In Solidity *enums* are custom data types consisting of a limited set of constant values. We use enums when our variables should only get assigned a value from a predefined set of values. 
+Solidityでは、*列挙型*は、限られた定数値のセットで構成されるカスタムデータ型です。変数に事前定義された値のセットからのみ値を割り当てる必要がある場合は、列挙型を使用します。
 
-In this contract, the state variable `status` can get assigned a value from the limited set of provided values of the enum `Status` representing the various states of a shipping status.
+このコントラクトでは、状態変数 `status`に、出荷ステータスのさまざまな状態を表す列挙型`Status`の提供された値の限定されたセットから値を割り当てることができます。
 
+### 列挙型の定義
 
-### Defining enums
-We define an enum with the enum keyword, followed by the name of the custom type we want to create (line 6). Inside the curly braces, we define all available members of the enum.
+enumキーワードを使用して列挙型を定義し、その後に作成するカスタムタイプの名前を続けます（6行目）。中括弧内で、列挙型の使用可能なすべてのメンバーを定義します。
 
-### Initializing an enum variable
-We can initialize a new variable of an enum type by providing the name of the enum, the visibility, and the name of the variable (line 16). Upon its initialization, the variable will be assigned the value of the first member of the enum, in this case, Pending (line 7).
+### 列挙型変数の初期化
 
-Even though enum members are named when you define them, they are stored as unsigned integers, not strings. They are numbered in the order that they were defined, the first member starting at 0. The initial value of status, in this case, is 0.
+列挙型の名前、可視性、および変数の名前を指定することで、列挙型の新しい変数を初期化できます（16行目）。初期化時に、変数には列挙型の最初のメンバーの値（この場合はPending）が割り当てられます（7行目）。
 
-### Accessing an enum value
-To access the enum value of a variable, we simply need to provide the name of the variable that is storing the value (line 25).
+列挙型メンバーは、定義時に名前が付けられますが、文字列ではなく、符号なし整数として格納されます。それらは、定義された順序で番号が付けられ、最初のメンバーは0から始まります。この場合、statusの初期値は0です。
 
-### Updating an enum value
-We can update the enum value of a variable by assigning it the `uint` representing the enum member (line 30). Shipped would be 1 in this example. Another way to update the value is using the dot operator by providing the name of the enum and its member (line 35).
+### 列挙値へのアクセス
 
-### Removing an enum value
-We can use the delete operator to delete the enum value of the variable, which means as for arrays and mappings, to set the default value to 0.
+変数の列挙値にアクセスするには、値を格納している変数の名前を指定するだけです（25行目）。
 
-<a href="https://www.youtube.com/watch?v=yJbx07N15j0" target="_blank">Watch a video tutorial on Enums</a>.
+### 列挙値の更新
 
-## ⭐️ Assignment
-1. Define an enum type called `Size` with the members `S`, `M`, and `L`.
-2. Initialize the variable `sizes` of the enum type `Size`.
-3. Create a getter function `getSize()` that returns the value of the variable `sizes`.
+変数の列挙値を更新するには、列挙メンバーを表す `uint`を割り当てます（30行目）。この例では、出荷は1になります。値を更新する別の方法は、列挙型とそのメンバーの名前を指定してドット演算子を使用することです（35行目）。
+
+### 列挙値の削除
+
+削除演算子を使用して、変数の列挙値を削除できます。これは、配列とマッピングの場合と同様に、デフォルト値を0に設定することを意味します。
+
+<a href="https://www.youtube.com/watch?v=yJbx07N15j0"target="_blank">Enumsのビデオチュートリアルをご覧ください</a>。
+
+## ⭐️問題
+
+1. メンバー`S`、` M`、および`L`を使用して`Size`という列挙型を定義します。
+2. 列挙型`Size`の変数`sizes`を初期化します。
+3. 変数`sizes`の値を返すゲッター関数`getSize（）`を作成します。

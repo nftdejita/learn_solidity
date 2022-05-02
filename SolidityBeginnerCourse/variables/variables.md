@@ -1,25 +1,25 @@
-There are three different types of variables in Solidity: *State Variables*, *Local Variables*, and *Global Variables*.
+Solidityには、*State変数*、*Local変数*、および*Global変数*の3種類の変数があります。
 
-## 1. State Variables
-*State Variables* are stored in the contract *storage* and thereby on the blockchain. They are declared inside the contract but outside the function.
-This contract has two state variables, the string `text`(line 6) and the uint `num` (line 7).
+## 1.State変数
+*State変数*はコントラクト*storage*に格納され、それによってブロックチェーンに格納されます。それらはコントラクト内で宣言されますが、関数外で宣言されます。
+このコントラクトには、文字列 `text`（6行目）とuint` num`（7行目）の2つのState変数があります。
 
-## 2. Local Variables
-*Local Variables* are stored in the *memory* and their values are only accessible within the function they are defined in. Local Variables are not stored on the blockchain.
-In this contract, the uint `i` (line 11) is a local variable. 
+## 2.Local変数
+*Local変数*は*メモリ*に格納され、それらの値はそれらが定義されている関数内でのみアクセス可能です。Local変数はブロックチェーンに格納されません。
+このコントラクトでは、uint `i`（11行目）はLocal変数です。
 
-## 3. Global Variables
-*Global Variables*, also called *Special Variables*, exist in the global namespace. They don't need to be declared but can be accessed from within your contract.
-Global Variables are used to retrieve information about the blockchain, particular addresses, contracts, and transactions.
+## 3.Global変数
+*Special変数*とも呼ばれる*Global変数*は、Global名前空間に存在します。宣言する必要はありませんが、コントラクト内からアクセスできます。
+Global変数は、ブロックチェーン、特定のアドレス、コントラクト、およびトランザクションに関する情報を取得するために使用されます。
 
-In this example, we use `block.timestamp` (line 14) to get a Unix timestamp of when the current block was generated and `msg.sender` (line 15) to get the caller of the contract function’s address.
+この例では、 `block.timestamp`（14行目）を使用して現在のブロックが生成されたときのUnixタイムスタンプを取得し、` msg.sender`（15行目）を使用してコントラクト関数のアドレスの呼び出し元を取得します。
 
-A list of all Global Variables is available in the <a href="https://docs.soliditylang.org/en/latest/cheatsheet.html?highlight=Variables#global-variables" target="_blank">Solidity documentation</a>.
+すべてのGlobal変数のリストは、<a href="https://docs.soliditylang.org/en/latest/cheatsheet.html?highlight=Variables#global-variables" target="_blank">Solidityドキュメント<にあります。 </a>
 
-Watch video tutorials on <a href="https://www.youtube.com/watch?v=hl692-xJPUQ" target="_blank">State Variables</a>, <a href="https://www.youtube.com/watch?v=5Gxzwn0SQDU" target="_blank">Local Variables</a>, and <a href="https://www.youtube.com/watch?v=ryA86ZiSD-w" target="_blank">Global Variables</a>.
+<a href="https://www.youtube.com/watch?v=hl692-xJPUQ"  target="_blank">State変数</a>、<a href="https://www .youtube.com / watch？v = 5Gxzwn0SQDU " target =" _ blank ">Local変数</a>、および<a href ="https://www.youtube.com/watch?v=ryA86ZiSD-w " target = "_blank">Global変数。</a>
 
-## ⭐️ Assignment
-1. Create a new public state variable called `blockNumber`.
-2. Inside the function `doSomething()`, assign the value of the current block number to the state variable `blockNumber`.
+## ⭐️問題
+1. `blockNumber`という新しいpublicなState変数を作成します。
+2. 関数`doSomething（）`内で、現在のブロック番号の値をstate変数`blockNumber`に割り当てます。
 
-Tip: Look into the global variables section of the Solidity documentation to find out how to read the current block number.
+ヒント：SolidityドキュメントのGlobal変数のセクションを調べて、現在のブロック番号を読み取る方法を確認してください。

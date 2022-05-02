@@ -1,47 +1,47 @@
-The values of variables in Solidity can be stored in different data locations: *memory*, *storage*, and *calldata*.
+Solidity の変数の値は、異なるデータロケーションに保存することができます。*Memory*、*Storage*、*Calldata*です。
 
-As we have discussed before, variables of the value type store an independent copy of a value, while variables of the reference type (array, struct, mapping) only store the location (reference) of the value.
+前に説明したように、値型の変数は値の独立したコピーを格納し、参照型（配列、構造体、マッピング）の変数は値の場所（参照）を格納するだけです。
 
-If we use a reference type in a function, we have to specify in which data location their values are stored. The price for the execution of the function is influenced by the data location; creating copies from reference types costs gas.
+関数内で参照型を使用する場合、その値がどのデータ位置に格納されるかを指定する必要があります。関数の実行価格はデータの場所に影響され、参照型からコピーを作成するとガス代がかかります。
 
 ### Storage
-Values stored in *storage* are stored permanently on the blockchain and, therefore, are expensive to use.
+*storage*に格納された値はブロックチェーン上に恒久的に保存されるため、使用するためにはコストがかかる。
 
-In this contract, the state variables `arr`, `map`, and `myStructs` (lines 5, 6, and 10) are stored in storage. State variables are always stored in storage.
+このコントラクトでは、ステート変数 `arr`, `map`, `myStructs` (5、6、10行目) はストレージに格納されます。状態変数は常にストレージに格納されます。
 
 ### Memory
-Values stored in *memory* are only stored temporarily and are not on the blockchain. They only exist during the execution of an external function and are discarded afterward. They are cheaper to use than values stored in *storage*.
+Memoryに保存された値は、一時的に保存されるだけで、ブロックチェーン上には存在しません。外部関数の実行中にのみ存在し、実行後は破棄されます。それらは*storage*に格納された値よりも使用料が安い。
 
-In this contract, the local variable `myMemstruct` (line 19), as well as the parameter `_arr` (line 31), are stored in memory. Function parameters need to have the data location *memory* or *calldata*.
+このコントラクトでは、ローカル変数 `myMemstruct` (19行目) とパラメータ `_arr` (31行目) がMemoryに格納されます。関数のパラメータは、*memory* または *calldata* というデータロケーションを持つ必要があります。
 
 ### Calldata
-*Calldata* stores function arguments. Like *memory*, *calldata* is only stored temporarily during the execution of an external function. In contrast to values stored in *memory*, values stored in *calldata* can not be changed. Calldata is the cheapest data location to use.
+*Calldata* は関数の引数を格納します。*calldata*は、*memory*と同様に、外部関数の実行時にのみ一時的に格納される。Memoryに格納される値とは異なり、calldataに格納された値を変更することはできない。Calldataは最も安価に利用できるデータロケーションである。
 
-In this contract, the parameter `_arr` (line 35) has the data location *calldata*. If we wanted to assign a new value to the first element of the array `_arr`, we could do that in the `function g` (line 31) but not in the `function h` (line 35). This is because `_arr` in `function g `has the data location *memory* and *function h* has the data location `calldata`.
+このコントラクトでは、パラメータ `_arr` (行 35) はデータロケーション *calldata* を持っています。もし、配列 `_arr` の最初の要素に新しい値を代入したい場合、 `function g` (line 31) では可能ですが、 `function h` (line 35) では行えません。これは、 `function g` の `_arr` がデータの場所 *memory* を持ち、 *function h* がデータの場所 `calldata` を持つためです。
 
-## Assignments
+## アサインメント
 
-### Memory to memory
-Assignments from *memory* to *memory* create references instead of copies. If you change the value in one variable, the value of all other variables that reference the same data will be changed.
+### MemoryからMemoryへ
+*Memory*から*Memory*への代入はコピーではなく、参照を作成します。ある変数の値を変更すると、同じデータを参照している他のすべての変数の値も変更されます。
 
-If we were to create a new struct `myMemStruct2` with the data location *memory* inside the `function f` (line 12) and assign it the value of `myMemStruct` (line 19), any change to `myMemStruct2` would also change the value of `myMemStruct`.
+例えば、`function f` (12行目)の中で、データの場所 *memory* を持つ新しい構造体 `myMemStruct2` を作成し、それに `myMemStruct` の値を代入すると (19行目)、 `myMemStruct2` に対する変更は `myMemStruct` に対する値も変更することになります。
 
-### Storage to local storage
-Assignments from *storage* to *local storage* also create references, not copies.
+### Storageからlocal storageへ
+*storage* から *local storage* へのアサインメントも、コピーではなく参照を作成します。
 
-If we change the value of the local variable `myStruct` (line 17), the value of our state variable `myStructs` (line 10) changes as well.
+ローカル変数 `myStruct` (17行目) の値を変更すると、ステート変数 `myStructs` (10行目) の値も同様に変更されます。
 
-## Storage and memory/calldata
-Assignments between *storage* and *memory* (or *calldata*) create independent copies, not references.
+## StorageとMemory / Calldata
+*storage* と *memory* (または *calldata*) の間の代入は、参照ではなく、独立したコピーを作成します。
 
-If we were to create a new struct `myMemStruct3` with the data location *memory* inside the `function f` (line 12) and assign it the value of `myStruct`, changes in `myMemStruct3` would not affect the values stored in the mapping `myStructs` (line 10).
+もし、 `function f` (12行目) の中で、データ位置 *memory* を持つ新しい構造体 `myMemStruct3` を作成し、それに `myStruct` の値を割り当てると、 `myMemStruct3` が変化してもマッピング `myStructs` (10行目) に格納されている値には影響しません。
 
-As we said in the beginning, when creating contracts we have to be mindful of gas costs. Therefore, we need to use data locations that require the lowest amount of gas possible.
+冒頭で述べたように、コントラクトを作成する際には、ガス代に注意する必要があります。そのため、できるだけガス代がかからないデータロケーションを使用する必要があります。
 
-## ⭐️ Assignment
-1. Change the value of the `myStruct` member `foo`, inside the `function f`, to 4.
-2. Create a new struct `myMemStruct2` with the data location *memory* inside the `function f` and assign it the value of `myMemStruct`. Change the value of the `myMemStruct2` member `foo` to 1.
-3. Create a new struct `myMemStruct3` with the data location *memory* inside the `function f` and assign it the value of `myStruct`. Change the value of the `myMemStruct3` member `foo` to 3.
-4. Let the function f return `myStruct`, `myMemStruct2`, and `myMemStruct3`.
+## ⭐️ 問題
+1. 関数 f` 内の `myStruct` メンバ `foo` の値を 4 に変更する。
+2. 関数 f` の内部で、データの場所 *memory* を指定して新しい構造体 `myMemStruct2` を作成し、それに `myMemStruct` の値を代入します。myMemStruct2` のメンバー `foo` の値を 1 に変更します。
+3. `function f` の内部で、データの場所 *memory* を指定して新しい構造体 `myMemStruct3` を作成し、その値を `myStruct` に代入します。myMemStruct3` のメンバー `foo` の値を 3 に変更します。
+4. 関数 f が `myStruct`、`myMemStruct2`、`myMemStruct3` を返すようにします。
 
-Tip: Make sure to create the correct return types for the function `f`.
+ヒント：関数 `f` の戻り値の型が正しいことを確認してください。

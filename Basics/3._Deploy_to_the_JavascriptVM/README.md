@@ -1,13 +1,13 @@
-In the previous chapter, we compiled a contract  - which is to say the solidity code has been transformed into little chunks of Ethereum Virtual Machine (EVM) bytecode.
+前章では、コントラクトをコンパイルしました。つまり、solidity コードを Ethereum Virtual Machine (EVM) バイトコードの小さなチャンクに変換したことを意味します。
 
-Now we will put that code on a test blockchain. 
+今度は、そのコードをテストブロックチェーンに載せてみましょう。
 
-1. Click the Deploy and Run icon ![deploy & run icon](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/3._Deploy_to_the_JavascriptVM/images/run.png "deploy & run icon").  
+1. Deploy and Run icon ![deploy & run icon](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/3._Deploy_to_the_JavascriptVM/images/run.png "deploy & run icon")をクリックします。 
 
-2. Select the **JavaScript VM** from the Environment pulldown. 
+2. 2. Environment プルダウンから **JavaScript VM** を選択します。
 
-4. Click the Deploy button (or the transact button in the expanded view).
+4. 4. [デプロイ]ボタン(または拡張ビューの[トランザクション]ボタン)をクリックします。
 
-5. You have deployed the contract to the JSVM - a simulated blockchain that is running inside of your browser window.  The JSVM is the simplest, fastest  and least realistic of test chains.  It is very similar to Ganache - if you are familiar with Truffle. It is not that realistic because you don't need to approve each transaction.  
+5. 5. これで、コントラクトをJSVM（ブラウザウィンドウ内で実行されているシミュレーションブロックチェーン）にデプロイしました。 JSVMは、テストチェーンの中で最も単純で、最も速く、最も現実的ではありません。 これはGanacheに非常に似ています - あなたがTruffleに精通している場合。各トランザクションを承認する必要がないため、それほど現実的ではありません。 
 
-You can deploy to other test chains or to the mainnet. But to do this you'd need to connect to another **environment** - like Injected Web3 or Web3 Provider.  When you use Injected Web3 - you need to have MetaMask installed. MetaMask is a wallet that is a browser plugin.    
+他のテストチェーンやメインネットにデプロイすることができる。しかし、これを行うには別の**環境**に接続する必要があります - Injected Web3やWeb3 Providerのようなものです。 Injected Web3を使用する場合、MetaMaskをインストールする必要があります。MetaMaskはブラウザのプラグインであるウォレットです。   

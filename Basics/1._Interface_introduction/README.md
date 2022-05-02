@@ -1,11 +1,10 @@
-## Remix is composed of a number of panels.
-## Japanese
-### 日本語もいけますね。
+## Remixはいくつかのパネルで構成されています。
 
-![Remix layout](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/1._Interface_introduction/images/a-layout1c.png "Remix layout")
+![Remixのレイアウト](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/1._Interface_introduction/images/a-layout1c.png "Remix layout")
 
-In the **main panel** of Remix, make sure you see the **landing page**.  To navigate to the landing page, click the Remix icon ![Remix icon](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/1._Interface_introduction/images/remix-logo.png "Remix icon") on the top of the icon panel.
+Remixの**メインパネル**に、**ランディングページ**が表示されていることを確認してください。 ランディングページに移動するには、アイコンパネルの上部にあるRemixアイコン ![Remix icon](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/1._Interface_introduction/images/remix-logo.png "Remix icon")をクリックします。
 
-- In the **Environments** section of the **landing page**, click the **Solidity** button.  This button will activate a number of plugins - you’ll see them in the icon panel (if they haven't already been activated).
+- ランディングページの**環境**セクションで、**Solidity**ボタンをクリックします。 このボタンでいくつかのプラグインが有効になります - アイコンパネルに表示されます（まだ有効化されていない場合）。
 
-- Alternatively, you can activate plugins one at a time with the plugin manager. ![plugin manager](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/1._Interface_introduction/images/plugin1.png "plugin manager icon")
+- また、プラグインマネージャーでプラグインを1つずつ有効化することもできます。[プラグインマネージャー](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/1._Interface_introduction/images/plugin1.png "プラグインマネージャーアイコン")
+

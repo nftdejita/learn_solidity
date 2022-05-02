@@ -1,26 +1,26 @@
-Solidity supports iterative control flow statements that allow contracts to execute code repeatedly.
+Solidityは、コントラクトがコードを繰り返し実行できるようにする反復制御フローステートメントをサポートします。
 
-Solidity differentiates between three types of loops: `for`, `while`, and `do while` loops.
+Solidityは、 `for`、` while`、および`do while`ループの3つのタイプのループを区別します。
 
 ### for
-Generally, `for` loops (line 7) are great if you know how many times you want to execute a certain block of code. In solidity, you should specify this amount to avoid transactions running out of gas and failing if the amount of iterations is too high.
+一般に、特定のコードブロックを何回実行するかがわかっている場合は、 `for`ループ（7行目）が最適です。 Solidityでは、この量を指定して、トランザクションのガスが不足し、反復の量が多すぎる場合に失敗しないようにする必要があります。
 
 ### while
-If you don’t know how many times you want to execute the code but want to break the loop based on a condition, you can use a `while` loop (line 20).
-Loops are seldom used in Solidity since transactions might run out of gas and fail if there is no limit to the number of iterations that can occur.
+コードを何回実行するかわからないが、条件に基づいてループを中断したい場合は、 `while`ループを使用できます（20行目）。
+発生する可能性のある反復回数に制限がない場合、トランザクションがガスを使い果たして失敗する可能性があるため、Solidityでループが使用されることはめったにありません。
 
 ### do while
-The `do while` loop is a special kind of while loop where you can ensure the code is executed at least once, before checking on the condition.
+`do while`ループは特別な種類のwhileループであり、条件をチェックする前に、コードが少なくとも1回実行されることを確認できます。
 
 ### continue
-The `continue` statement is used to skip the remaining code block and start the next iteration of the loop. In this contract, the `continue` statement (line 10) will prevent the second if statement (line 12) from being executed.
+`continue`ステートメントは、残りのコードブロックをスキップし、ループの次の反復を開始するために使用されます。このコントラクトでは、 `continue`ステートメント（10行目）は、2番目のifステートメント（12行目）が実行されないようにします。
 
 ### break
-The `break` statement is used to exit a loop. In this contract, the break statement (line 14) will cause the for loop to be terminated after the sixth iteration.
+`break`ステートメントはループを終了するために使用されます。このコントラクトでは、breakステートメント（14行目）により、6回目の反復後にforループが終了します。
 
-<a href="https://www.youtube.com/watch?v=SB705OK3bUg" target="_blank">Watch a video tutorial on Loop statements</a>.
+<a href="https://www.youtube.com/watch?v=SB705OK3bUg" target="_blank">ループステートメントに関するビデオチュートリアルをご覧ください</a>。
 
-## ⭐️ Assignment
-1. Create a public `uint` state variable called count in the `Loop` contract.
-2. At the end of the for loop, increment the count variable by 1.
-3. Try to get the count variable to be equal to 9, but make sure you don’t edit the `break` statement.
+## ⭐️問題
+1. `Loop`コントラクトにcountというパブリック`uint`状態変数を作成します。
+2. forループの最後で、カウント変数を1ずつ増やします。
+3. count変数が9になるようにしますが、`break`ステートメントを編集しないようにしてください。

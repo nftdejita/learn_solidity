@@ -1,15 +1,15 @@
-## Load a file from the Files Explorer
-**Proceedure**
+## ファイルエクスプローラからファイルを読み込む
+**手順
 
-1. In the icon panel, click ![file explorer icon](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/2._Load_and_compile/images/files1.png "file explorer icon") - the File Explorer's icon.
+1. アイコンパネルで、[ファイルエクスプローラーアイコン](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/2._Load_and_compile/images/files1.png "file explorer icon") - ファイルエクスプローラーのアイコンをクリックします。
 
-5. Find **2_Owner.sol** which is in the browser/contracts folder.  Click it and the file will appear in the main panel's editor in a tab.
+5. 5. browser/contractsフォルダにある**2_Owner.sol**を探します。 それをクリックすると、そのファイルがメインパネルのエディタにタブで表示されます。
 
-7. In the icon panel, click the **Solidity Compiler** ![solidity compiler icon](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/2._Load_and_compile/images/solidity1.png "solidity compiler icon"). The Solidity compiler should now be in the side panel.
+7. 7. アイコンパネルで、**Solidity Compiler** [solidity compiler icon](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/2._Load_and_compile/images/solidity1.png "solidity compiler icon")をクリックします。これで、Solidity コンパイラがサイドパネルに表示されるはずです。
 
-8. Click the compile button. 
-![compile 2_owner](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/2._Load_and_compile/images/compile2owner.png "compile 2_Owner") 
+8. 8. コンパイル ボタンをクリックします。
+![コンパイル 2_Owner](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/2._Load_and_compile/images/compile2owner.png "コンパイル 2_Owner") をクリックします。
 
-The spinner will turn while the file is compiling.  
+ファイルがコンパイルされている間、スピナーが回ります。 
 
-**Note:** The spinner also turns when the compiler itself is loading.  You can choose a different version of Solidity in the select box at the top of the plugin.
+**注意:** コンパイラー自体のロード中もスピナーは回転します。 プラグイン上部のセレクトボックスで、Solidityの異なるバージョンを選択することができます。

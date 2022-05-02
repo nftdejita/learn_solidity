@@ -1,39 +1,39 @@
-This section will look into the types of functions that don't modify the state of the blockchain: *view* and *pure* functions.
+このセクションでは、ブロックチェーンの状態を変更しない関数のタイプ（*view*関数と*pure*関数）について説明します。
 
-### View Functions 
-*View functions* promise to not modify the state.
+### 関数の表示
+*ビュー関数*は状態を変更しないことを約束します。
 
-"The following statements are considered modifying the state:
-1. Writing to state variables.
-2. Emitting events.
-3. Creating other contracts.
-4. Using selfdestruct.
-5. Sending Ether via calls.
-6. Calling any function not marked view or pure.
-7. Using low-level calls.
-8. Using inline assembly that contains certain opcodes."
+「次のステートメントは、状態を変更すると見なされます。
+1. 状態変数への書き込み。
+2. イベントを発行します。
+3. 他のコントラクトを作成します。
+4. 自己破壊を使用します。
+5. 通話を介してEtherを送信します。
+6. viewまたはpureとマークされていない関数を呼び出す。
+7. 低レベルの呼び出しを使用します。
+8. 特定のオペコードを含むインラインアセンブリを使用します。」
 
-From the <a href="https://docs.soliditylang.org/en/latest/contracts.html#view-functions" target="_blank">Solidity documentation</a>.
+<a href = "https://docs.soliditylang.org/en/latest/contracts.html#view-functions" target ="_blank">Solidityドキュメントから。</a>
 
-You can declare a view function using the keyword `view`. In this contract, `addToX` (line 8) is a view function. This function takes the parameter `y` and returns the sum of the parameter and the state variable `x`. It reads `x` but does not modify it.
+キーワード`view`を使用してビュー関数を宣言できます。このコントラクトでは、 `addToX`（8行目）はビュー関数です。この関数はパラメータ`y`を受け取り、パラメータと状態変数`x`の合計を返します。 `x`を読み取りますが、変更しません。
 
-### Pure functions 
-*Pure functions* promise to neither modify nor to read the state.
+### Pure関数
+*Pure関数*は、状態を変更したり読み取ったりしないことを約束します。
 
-"In addition to the list of state modifying statements explained above, the following are considered reading from the state:
-1. Reading from state variables.
-2. Accessing `address(this).balance` or `<address>.balance`.
-3. Accessing any of the members of block, tx, msg (with the exception of `msg.sig` and `msg.data`).
-4. Calling any function not marked pure.
-5. Using inline assembly that contains certain opcodes."
+「上記で説明した状態変更ステートメントのリストに加えて、以下は状態からの読み取りと見なされます。
+1. 状態変数からの読み取り。
+2.  `address（this）.balance`または`<address>.balance`にアクセスします。
+3. ブロック、tx、msgのメンバーのいずれかにアクセスします（`msg.sig`と`msg.data`を除く）。
+4. 純粋とマークされていない関数を呼び出す。
+5. 特定のオペコードを含むインラインアセンブリを使用します。」
 
-From the <a href="https://docs.soliditylang.org/en/latest/contracts.html#pure-functions" target="_blank">Solidity documentation</a>.
+<a href = "https://docs.soliditylang.org/en/latest/contracts.html#pure-functions" target ="_blank">Solidityドキュメントから。</a>
 
-You can declare a pure function using the keyword `pure`. In this contract, `add` (line 13) is a pure function. This function takes the parameters `i` and `j`, and returns the sum of them. It neither reads nor modifies the state variable `x`.
+キーワード`pure`を使用して純粋関数を宣言できます。このコントラクトでは、 `add`（13行目）は純粋関数です。この関数は、パラメーター`i`と`j`を受け取り、それらの合計を返します。状態変数`x`の読み取りも変更もしません。
 
-In Solidity development, you need to optimise your code for saving computation cost (gas cost). Declaring functions view and pure can save gas cost and make the code more readable and easier to maintain. Pure functions don't have any side effects and will always return the same result if you pass the same arguments.
+Solidity開発では、計算コスト（ガスコスト）を節約するためにコードを最適化する必要があります。関数viewとpureを宣言すると、ガスコストを節約し、コードを読みやすく、保守しやすくすることができます。純粋関数には副作用がなく、同じ引数を渡すと常に同じ結果が返されます。
 
-<a href="https://www.youtube.com/watch?v=vOmXqJ4Qzbc" target="_blank">Watch a video tutorial on View and Pure Functions</a>.
+<a href="https://www.youtube.com/watch?v=vOmXqJ4Qzbc" target="_blank">表示と純粋関数に関するビデオチュートリアルを見る。</a>
 
-## ⭐️ Assignment
-Create a function called `addToX2` that takes the parameter `y` and updates the state variable `x` with the sum of the parameter and the state variable `x`.
+## ⭐️問題
+パラメータ`y`を取り、状態変数`x`をパラメータと状態変数`x`の合計で更新する`addToX2`という関数を作成します。
