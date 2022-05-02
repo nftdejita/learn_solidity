@@ -1,4 +1,5 @@
 ## Remix is composed of a number of panels.
+## Japanese
 ### 日本語もいけますね。
 
 ![Remix layout](https://raw.githubusercontent.com/ethereum/remix-workshops/master/Basics/1._Interface_introduction/images/a-layout1c.png "Remix layout")
