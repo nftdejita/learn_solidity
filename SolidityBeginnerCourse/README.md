@@ -1,5 +1,5 @@
-## Interactive Solidity Course
+## インタラクティブSolidityコース
 
-Learn the most important Solidity beginner concepts interactively, based on the popular https://solidity-by-example.org/ contracts.
+人気のあるhttps://solidity-by-example.org/コントラクトに基づいて、最も重要なSolidity初心者の概念をインタラクティブに学びます。
 
-Developed by the p2p learning platform https://dacade.org.
+p2p学習プラットフォームhttps://dacade.orgによって開発されました。
