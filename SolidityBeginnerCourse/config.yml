@@ -1,42 +1,42 @@
 --- 
 id: soliditybeginner
-name: Solidityの基本
+name: 01 Solidityの基本
 summary: Solidity Beginner Course based on the popular https://solidity-by-example.org/ contracts. Developed by the p2p learning platform https://dacade.org.
 level: 1
 tags: 
   - Solidity
 steps:
-  - name: 1. 始めに
+  - name:  1.   始めに
     path: introduction
-  - name: 2. 基本構文
+  - name:  2.   基本構文
     path: basic-syntax
-  - name: 3. 基本データ型
+  - name:  3.   基本データ型
     path: primitive-data-types
-  - name: 4. 変数
+  - name:  4.   変数
     path: variables
-  - name: 5.1 関数 - State変数の読み取りと書き込み
+  - name:  5.1  関数 - State変数の読み取りと書き込み
     path: functions-reading-and-writing
-  - name: 5.2 関数 - View と Pure
+  - name:  5.2  関数 - View と Pure
     path: functions-view-and-pure
-  - name: 5.3 関数 - Modifiers と Constructors
+  - name:  5.3  関数 - Modifiers と Constructors
     path: functions-modifiers-and-constructors
-  - name: 5.4 関数 - Inputs と Outputs
+  - name:  5.4  関数 - Inputs と Outputs
     path: functions-inputs-and-outputs
-  - name: 6. 可視性
+  - name:  6.   可視性
     path: visibility
-  - name: 7.1 制御構文 - If/Else
+  - name:  7.1  制御構文 - If/Else
     path: control-flow-if-else
-  - name: 7.2 制御構文 - Loops
+  - name:  7.2  制御構文 - Loops
     path: control-flow-loops
-  - name: 8.1 データ構造 - 配列
+  - name:  8.1  データ構造 - 配列
     path: data-structures-arrays
-  - name: 8.2 データ構造 - マッピング
+  - name:  8.2  データ構造 - マッピング
     path: data-structures-mappings
-  - name: 8.3 データ構造 - 構造体
+  - name:  8.3  データ構造 - 構造体
     path: data-structures-structs
-  - name: 8.4 データ構造 - 列挙型
+  - name:  8.4  データ構造 - 列挙型
     path: data-structures-enums
-  - name: 9. Dataの場所
+  - name:  9.   Dataの場所
     path: data-locations
   - name: 10.1 トランザクション - Ether and Wei 
     path: transactions-ether-and-wei 
