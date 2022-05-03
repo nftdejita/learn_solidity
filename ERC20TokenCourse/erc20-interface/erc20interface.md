@@ -9,7 +9,7 @@ ERC20トークンコントラクトに必要な機能の概要を理解するた
 このインターフェース（9行目）は、<a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.4.0/contracts/token/ERC20/IERC20.sol" target =" _ blank ">OpenZeppelin</a>が提供するオープンソースコントラクトライブラリの一部です。。
 
 ## ERC20関数
-ERC20標準に準拠する契約では、次の6つの機能を実装する必要があります。
+ERC20標準に準拠するコントラクトでは、次の6つの機能を実装する必要があります。
 
 ### totalSupply
 関数`totalSupply`（13行目）は、使用可能なトークンの合計量を返します。

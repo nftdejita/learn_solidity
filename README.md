@@ -1,42 +1,41 @@
-# This is a repo of tutorials for the Remix's LearnEth Plugin
+# これは Remix の LearnEth プラグインのためのチュートリアルのレポです。
 
 
-### To use these tutorials:
+### これらのチュートリアルを使うには
 
 
-**1. Open Remix**
+**1. Remixを開く**。
 
 https://remix.ethereum.org
 
-**2. In the plugin manager activate LEARNETH**
+**2. プラグインマネージャーでLEARNETH**を有効化します。
 
-**3. Go to the Learneth plugin and these tutorials will load by default**
+**3. LEARNETHプラグインにアクセスすると、これらのチュートリアルがデフォルトでロードされます**。
 
-**4. For questions**
+**4. 質問について**
 
 https://gitter.im/ethereum/remix-workshop
 
-We are here to help.
+私たちがお手伝いします。
 
 
-**5. You may need to sign into Github**
+**5. Githubにサインインする必要がある場合があります**。
 
-Github will block too many requests from the same location - unless you are signed into github and input a token.  This is only an issue during workshops - but because we are in a workshop, we need to do these steps:
-
-    - In one browser window - go to remix.ethereum.org and go to the settings tab
-    - In another browser window go to: 
+Githubにサインインしてトークンを入力しない限り、同じ場所からのリクエストが多すぎるとブロックされます。 これはワークショップの時だけの問題です - しかし、我々はワークショップにいるので、これらの手順を実行する必要があります。
+* 1つのブラウザで remix.ethereum.org にアクセスし、settings タブに移動してください。
+* 別のブラウザウィンドウで次の場所に移動します。
     
     https://github.com/settings/tokens 
     
-    and create a new token and save it in Remix in the you just opened on the settings tab.
+   で新しいトークンを作成し、Remixのsettingsタブで保存します。
 
 ---
-### To write more tutorials for LEARNETH:
-Instructions will be forthcoming...
+### LEARNETHのチュートリアルをもっと書くために。
+インストラクションは近日公開予定です...
 
 ---
 
-### For additional ressources and tutorial on other topics
+### 他のトピックのリソースやチュートリアルを追加する場合
 
-#### Additional external workshops
-- [Using Oraclize plugin in Remix](https://medium.com/coinmonks/using-apis-in-your-ethereum-smart-contract-with-oraclize-95656434292e)
+#### その他の外部ワークショップ
+- Remixで[Oraclizeプラグイン](https://medium.com/coinmonks/using-apis-in-your-ethereum-smart-contract-with-oraclize-95656434292e)を使う

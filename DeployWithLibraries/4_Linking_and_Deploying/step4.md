@@ -19,7 +19,7 @@
 
     ![コピーlib1](images/alib_copy.png "コピー")
 
-  - **契約サンプルの**メタデータJSONに貼り付けます。
+  - **コントラクトサンプルの**メタデータJSONに貼り付けます。
 
   - `Runtransaction`モジュールで`sampleContract`コントラクトを再度選択し、デプロイを押します。
 
