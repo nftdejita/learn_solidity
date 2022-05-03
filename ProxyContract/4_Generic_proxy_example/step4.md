@@ -1,15 +1,15 @@
-# A Basic Generic Proxy Example
+# 基本的な汎用プロキシの例
 
-In the associated solidity file, **step4.sol**, there are 2 contracts - **ProxyContract** and **LogicContract**.
+関連するSolidityファイル**step4.sol**には、**ProxyContract**と**LogicContract**の2つのコントラクトがあります。
 
-To use this system, we first deploy the LogicContract.
+このシステムを使用するには、最初にLogicContractをデプロイします。
 
-And then when we go to deploy the ProxyContract, we pass the LogicContract's address as an arguement of the ProxyContract's constructor.
+そして、ProxyContractをデプロイするときに、ProxyContractのコンストラクターの引数としてLogicContractのアドレスを渡します。
 
-The ProxyContract is deployed only once.
+ProxyContractは1回だけデプロイされます。
 
-The code of LogicContract will be called at the line 20. It will be forwarded with delegate call while keeping the context of LogicContract.
+LogicContractのコードは20行目で呼び出されます。LogicContractのコンテキストを維持しながら、デリゲート呼び出しで転送されます。
 
-In case we need to change the logic we would deploy a new LogicContract and set the address of it with setLogicContractAddress setter function.
+ロジックを変更する必要がある場合は、新しいLogicContractをデプロイし、setLogicContractAddressセッター関数を使用してそのアドレスを設定します。
 
-*Note: The LogicContract we have here does not use the storage. Once you need to use the storage the implementation becomes a bit more complicated because those contracts share the context.*
+*注：ここにあるLogicContractはストレージを使用しません。 ストレージを使用する必要があると、それらのコントラクトがコンテキストを共有するため、実装は少し複雑になります。*

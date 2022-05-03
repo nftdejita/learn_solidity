@@ -1,13 +1,13 @@
-# How it works?
+# 使い方？
 
-**EIP-7 DelegateCall** opcode allows a separate execution in another contract while maintaining the original execution context.
+**EIP-7 DelegateCall**オペコードを使用すると、元の実行コンテキストを維持しながら、別のコントラクトで個別に実行できます。
 
-All **message calls** from the user go through a **Proxy contract**. 
+ユーザーからのすべての**メッセージ呼び出し**は**プロキシ契約**を通過します。
 
-The **Proxy contract** then will redirect them to the **Logic contract**. 
+次に、**プロキシコントラクト**はそれらを**ロジックコントラクト**にリダイレクトします。
 
-And when you need to **upgrade** the logic, you'll **just** deploy that - **HOWEVER** - the implementation of Proxy will remain the same. 
+また、ロジックを**アップグレード**する必要がある場合は、それを**展開**するだけです-**ただし**-プロキシの実装は同じままです。
 
-You'll only need to update the address of Logic contract in Proxy.
+プロキシでロジックコントラクトのアドレスを更新するだけで済みます。
 
-The Proxy Contract uses **Delegate calls** and **Solidity assembly** because without it, it's impossible to return any value from **delegatecall**.
+プロキシコントラクトは**デリゲートコール**と**ソリディティアセンブリ**を使用します。これがないと、**デリゲートコール**から値を返すことができないためです。

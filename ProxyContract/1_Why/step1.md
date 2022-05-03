@@ -1,26 +1,26 @@
-# Proxy Contract AKA the Dispatcher
+# プロキシコントラクト（別名ディスパッチャー）
 
-## Why?
+## なぜ？
 
-This is a great pattern that is used mainly in **library development**. 
+これは、主に**ライブラリ開発**で使用される優れたパターンです。
 
-It helps in the following ways:
+次のように役立ちます。
 
-- **Save gas cost at deployment time**
-The purpose of a high gas cost is to discourage the operations that cost a lot for their execution and to encourage optimized code.
+- **展開時にガスコストを節約**
+高いガスコストの目的は、実行に多くのコストがかかる操作を思いとどまらせ、最適化されたコードを奨励することです。
 
-- Proxy contracts are useful when a lot of instances of the same contract need to be deployed because they reduce the duplications in the deployment.
+- プロキシコントラクトは、同じコントラクトの多くのインスタンスをデプロイする必要がある場合に役立ちます。これは、デプロイメントの重複を減らすためです。
 
-- **Avoid code repetition in the blockchain.**
-Heavy computations are expensive because every node will need to perform them, this is of course slowing the network.
+- **ブロックチェーンでのコードの繰り返しを避けてください。**
+すべてのノードがそれらを実行する必要があるため、重い計算はコストがかかります。これはもちろんネットワークの速度を低下させます。
 
-- **Develop upgradable(versioned) contracts**
-When the contract is deployed, it’s immutable. By re-designing the code into different contracts, it is possible to allow logic upgrades while keeping the storage the same.
+- **アップグレード可能な（バージョン管理された）コントラクトを作成する**
+コントラクトが展開されるとき、それは不変です。コードを異なるコントラクトに再設計することにより、ストレージを同じに保ちながらロジックのアップグレードを可能にすることができます。
 
-## Example of gas cost
+## ガス代の例
 
-Storing contract code at creation time can cost up to:
+作成時にコントラクトコードを保存すると、最大で次のコストがかかる可能性があります。
  - 200 * max_byte_code_length gas
  - 200 * 24576 = 49152004915200 * 10 gwei = 49152000 gwei = 0.049152 ether = 9 EUR
- 
- see https://github.com/ethereum/EIPs/blob/master/EIPS/eip-170.md for more info on max_byte_code_length.
+
+ max_byte_code_lengthの詳細については、`https://github.com/ethereum/EIPs/blob/master/EIPS/eip-170.md`を参照してください。

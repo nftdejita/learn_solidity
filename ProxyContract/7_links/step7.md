@@ -1,19 +1,14 @@
-# Check out some links for more info
+＃詳細については、いくつかのリンクを確認してください
 
-- ERC DelegateProxy
-https://github.com/ethereum/EIPs/pull/897
+- [ERC DelegateProxy](https://github.com/ethereum/EIPs/pull/897)
 
-- The joint post by Zeppelin Solutions and Aragon.
-https://blog.openzeppelin.com/proxy-libraries-in-solidity-79fbe4b970fd/
+- ZeppelinSolutionsとAragonによる[ブログ](https://blog.openzeppelin.com/proxy-libraries-in-solidity-79fbe4b970fd/)
 
-- Proxy Patterns by OpenZeppelin
-https://blog.openzeppelin.com/proxy-patterns/
+- OpenZeppelinによる[プロキシパターン](https://blog.openzeppelin.com/proxy-patterns/)
 
-- The most mature implementation of Proxy pattern is The Unstructure Storage pattern that is released as part of ZeppelinOS 
-https://blog.openzeppelin.com/upgradeability-using-unstructured-storage/
+- プロキシパターンの最も成熟した実装は、ZeppelinOSの一部としてリリースされた[UnstructureStorageパターン](https://blog.openzeppelin.com/upgradeability-using-unstructured-storage/)です。
 
-- Great blog post by Jack Tanner
-https://blog.indorse.io/ethereum-upgradeable-smart-contract-strategies-456350d0557c
 
-- Upgradeable Ethereum Smart Contracts
-https://medium.com/@daonomic/upgradeable-ethereum-smart-contracts-d036cb373d6
+- JackTannerによるすばらしい[ブログ投稿](https://blog.indorse.io/ethereum-upgradeable-smart-contract-strategies-456350d0557c)
+
+- アップグレード可能な[イーサリアムスマートコントラクト](https://medium.com/@daonomic/upgradeable-ethereum-smart-contracts-d036cb373d6)

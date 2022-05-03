@@ -1,13 +1,13 @@
-# What if we have state variables?
+# State変数がある場合はどうなりますか？
 
-Things are more complicated once we need to deal with state variables.  State variable are saved to **storage**.
+State変数を処理する必要があると、事態はさらに複雑になります。State変数は**ストレージ**に保存されます。
 
- `storage`: is a mapping; each value stored there is persisted and saved on chain.
+ `storage`：マッピングです。そこに保存されている各値は永続化され、チェーンに保存されます。
 
-*Note: Statically-sized state variables (everything except mapping and dynamically-sized array types) are laid out contiguously in storage starting from position 0. Multiple, contiguous items that need less than 32 bytes are packed into a single storage slot if possible. For contracts that use inheritance, the ordering of state variables is determined by the C3-linearized order of contracts starting with the most base-ward contract*
+*注：静的サイズのState変数（マッピングと動的サイズの配列型を除くすべて）は、位置0からストレージに連続して配置されます。32バイト未満を必要とする複数の連続したアイテムは、可能であれば単一のストレージスロットにパックされます。継承を使用するコントラクトの場合、State変数の順序は、最もベースワードのコントラクトから始まるC3で線形化されたコントラクトの順序によって決定されます*
 
-Once we execute **delegate call**, the storage of both contracts get **"merged"** into a single messy state.
+**デリゲートコール**を実行すると、両方のコントラクトのストレージが**マージ**されて単一の乱雑な状態になります。
 
-We have to "tell" ProxyContract what the **state** of the **Logic contract** looks like. 
+ProxyContractに**Logicコントラクト**の**state**がどのように見えるかを「伝える」必要があります。
 
-The easiest way to do this is to create a separate contract - in this example - named **StorageContract** which will represent the **state** and which proxyContract will inherit from.
+これを行う最も簡単な方法は、**State**を表し、proxyContractが継承する**StorageContract**という名前の別のコントラクト（この例では）を作成することです。

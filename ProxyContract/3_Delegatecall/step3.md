@@ -1,9 +1,9 @@
-# Delegate call
+# 呼び出しを委任する
 
-It's a special variant of a **message call**, which is identical to a message call apart from the fact that the code at the target address is executed in the context of the calling contract so **msg.sender** and **msg.value** do not change their values.
+これは**メッセージ呼び出し**の特別な変形であり、ターゲットアドレスのコードが呼び出し側コントラクトのコンテキストで実行されるという事実を除けば、メッセージ呼び出しと同じです。したがって、**msg.sender**および* *msg.value**はそれらの値を変更しません。
 
-This means that a contract can dynamically load code from a different address at runtime. 
+これは、コントラクトが実行時に別のアドレスからコードを動的にロードできることを意味します。
 
-The storage, the current address and balance still refer to the calling contract, only the code is taken from the called address. 
+ストレージ、現在のアドレス、および残高は引き続き呼び出し側のコントラクトを参照し、コードのみが呼び出されたアドレスから取得されます。
 
-So when a **Proxy** delegates calls to the Logic contract, every storage modification will impact the storage of Logic contract.
+したがって、**プロキシ**がロジックコントラクトへの呼び出しを委任すると、ストレージを変更するたびにロジックコントラクトのストレージに影響が及びます。
