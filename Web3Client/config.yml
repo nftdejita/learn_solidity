@@ -9,6 +9,6 @@ tags:
   - Web3
 steps:
   - name: 1. インターフェース概要
-    path: 1._Interface_introduction
+    path: 1_Using_Web3
   - name: 2. コントラクトへのアクセス
     path: 2_Querying_a_Contract
