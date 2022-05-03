@@ -1,29 +1,32 @@
-The ERC20 standard only describes the required and optional functionality that your contract needs, but you can add additional functionality.
+ERC20標準では、コントラクトに必要な必須機能およびオプションの機能のみが記述されていますが、機能を追加することもできます。
 
-In this section, we added the functionality to burn and mint tokens, as well as the ability to pause the contract, by using OpenZeppelin extensions.
+このセクションでは、OpenZeppelin拡張機能を使用して、トークンを書き込む機能と通貨を発行（ミント）する機能、およびコントラクトを一時停止する機能を追加しました。
 
-Of course, you can write your own ERC20 token contract implementation or extensions and import them into your contract. But OpenZeppelin contracts have been audited by security experts and are a great way to add desired functionality.
+もちろん、独自のERC20トークンコントラクトの実装または拡張機能を作成して、それらをコントラクトにインポートすることもできます。しかし、OpenZeppelinのコントラクトはセキュリティの専門家によって監査されており、必要な機能を追加するための優れた方法です。
 
-### Mintable
-The mint function allows the creator of the contract to mint (create) additional tokens after the contract has been deployed (line 22). As input parameters, the function needs the address that the tokens will be minted to, and the amount of tokens that should be minted.
+### Mintable（発行機能）
+mint関数を使用すると、コントラクトの作成者は、コントラクトがデプロイされた後に追加のトークンをミント（作成）できます（22行目）。この関数には、入力パラメーターとして、トークンが作成されるアドレスと、作成する必要のあるトークンの量が必要です。
 
-We don't have to import `mint()` from another contract since the mint function is already part of the <a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol" target="_blank">ERC20 contract</a> implementation of OpenZeppelin. We import `Ownable` (line 7) which is a contract module that provides a basic access control mechanism that allows an owner to have exclusive access to specific functions. In this contract, we add the inherited `onlyOwner` modifier to the `mint` function (line 22) and restrict access to this function to the "owner".
+mint関数はすでに<a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol" target =" _ blank">ERC20コントラクト</a>によるOpenZeppelinの実装の一部であるため、別のコントラクトから `mint（）`をインポートする必要はありません。
 
-The contract will inherit additional functions like owner(), transferOwnership() and renounceOwnership() to manage access, from the <a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol" target="_blank">Ownable contract</a>. 
+基本的なアクセス制御メカニズムとして、所有者が特定の機能に排他的にアクセスできるようにコントラクトモジュールである`Ownable`（7行目）をインポートします。このコントラクトでは、継承された `onlyOwner`修飾子を`mint`関数に追加し（22行目）、この関数へのアクセスを「owner」に制限します。
 
-### Burnable
-By importing the "ERC20Burnable" (line 5) and inheriting its functions (line 9) our contract allows token holders to destroy their tokens as well as the tokens in their allowance.
-For more information, have a look at the <a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/extensions/ERC20Burnable.sol" target="_blank">ERC20Burnable contract</a>.
+コントラクトは、<a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol" target ="_blank">所有可能なコントラクト</a>から、アクセスを管理するために、owner（）、transferOwnership（）、renounceOwnership（）などの追加関数を継承します。 
 
-### Pausable
-With the "Pausable" contract module (line 6 and 9) the owner is able to pause (line 14) and unpause (line 18) the contract. In the pause state, tokens can't be transferred, which can be helpful in emergency scenarios.
-For more information, have a look at the <a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/security/Pausable.sol" target="_blank">Pausable contract</a>.
+### Burnable（破棄機能）
+「ERC20Burnable」（5行目）をインポートし、その機能を継承する（9行目）ことにより、トークン所有者はトークンとアローワンス内のトークンを破棄できます。
+詳細については、<a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/extensions/ERC20Burnable.sol" target ="_blank">ERC20Burnableコントラクト</a>をご覧ください。 
 
-Have a look at the OpenZeppelins <a href="https://docs.openzeppelin.com/contracts/4.x/wizard" target="_blank">Contract Wizard</a>, which allows you to easily add additional functionality.
 
-If you successfully completed this course, try the Learneth NFT Course as the next step in your journey.
+### Pausable（停止機能）
+「Pausable」一時停止可能コントラクトモジュール（6行目と9行目）を使用すると、所有者はコントラクトを一時停止（14行目）および一時停止解除（18行目）できます。一時停止状態では、トークンを転送できません。これは、緊急のシナリオで役立ちます。
+詳細については、<a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/security/Pausable.sol" target="_blank">一時停止可能なコントラクト</a>をご覧ください。
 
-## ⭐️ Assignment
-1. Try to mint tokens to an account after deployment. Call `totalSupply()` and `balanceOf()` to confirm the correct execution.
-2. Burn tokens and then call `totalSupply()` and `balanceOf()` to confirm the correct execution.
-3. Test the pause function by pausing the contract using the owner account and trying to make a transfer with a second account. The transaction should not be able to be executed and will throw the exception: "Pausable: paused".
+
+OpenZeppelins <a href="https://docs.openzeppelin.com/contracts/4.x/wizard" target="_blank">コントラクトウィザード</a>をご覧ください。これにより、機能を簡単に追加できます。 。
+
+
+## ⭐️課題
+1. Deploy後、アカウントにトークンを作成してみてください。 `totalSupply（）`と `balanceOf（）`を呼び出して、正しく実行されていることを確認します。
+2. トークンを書き込んでから、 `totalSupply（）`と `balanceOf（）`を呼び出して、正しく実行されていることを確認します。
+3. 所有者アカウントを使用してコントラクトを一時停止し、2番目のアカウントで転送を試みることにより、一時停止機能をテストします。トランザクションを実行できないようにする必要があり、「一時停止可能：一時停止」という例外がスローされます。

@@ -14,7 +14,7 @@
 
 <a href="https://www.youtube.com/watch?v=ybPQsjssyNw" target="_blank">EtherとWeiのビデオチュートリアルをご覧ください。</a>
 
-## ⭐️問題
+## ⭐️課題
 1. `oneGWei`という`public` `uint`を作成し、それを1`gwei`に設定します。
 2. `isOneGWei`という`public` `bool`を作成し、1gweiと10^9の比較操作の結果に設定します。
 

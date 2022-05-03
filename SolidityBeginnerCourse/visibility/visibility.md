@@ -28,5 +28,5 @@
 
 <a href="https://www.youtube.com/watch?v=NBzQVJ6OrrQ" target="_blank">可視性に関するビデオチュートリアルを見る。</a>
 
-## ⭐️問題
+## ⭐️課題
 `testInternalVar`と呼ばれる`Child`コントラクトに、返すことができる`Base`コントラクトからのすべてのstate変数の値を返す新しい関数を作成します。

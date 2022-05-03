@@ -35,5 +35,5 @@ Solidity開発では、計算コスト（ガスコスト）を節約するため
 
 <a href="https://www.youtube.com/watch?v=vOmXqJ4Qzbc" target="_blank">表示と純粋関数に関するビデオチュートリアルを見る。</a>
 
-## ⭐️問題
+## ⭐️課題
 パラメータ`y`を取り、状態変数`x`をパラメータと状態変数`x`の合計で更新する`addToX2`という関数を作成します。

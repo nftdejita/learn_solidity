@@ -1,44 +1,44 @@
-In this section, we will create our metadata and store it in a decentralized way.
+このセクションでは、メタデータを作成し、分散して保存します。
 
-IPFS ( InterPlanetary File System) is a peer-to-peer network for storing files in a distributed way. Pinata.cloud is a pinning service that allows users to easily host files on the IPFS network.
+IPFS（InterPlanetary File System）は、ファイルを分散して保存するためのピアツーピアネットワークです。 Pinata.cloudは、ユーザーがIPFSネットワーク上でファイルを簡単にホストできるようにするピン留めサービスです。
 
-We want to host our images and the JSON files with their metadata on IPFS. 
+画像とJSONファイルをそれらのメタデータとともにIPFSでホストしたいと考えています。
 
-### Create Image Folder
-In this example, we will create metadata for three tokens. As you can see below, we create three images that we stored in a folder.
-```
+### 画像フォルダを作成する
+この例では、3つのトークンのメタデータを作成します。以下に示すように、フォルダに保存した3つの画像を作成します。
+`` `
 geo-img
-├── geo_1.png
-├── geo_2.png
-├── geo_3.png
-```
+├──geo_1.png
+├──geo_2.png
+├──geo_3.png
+`` `
 
-### Register on Pinata
-Now, we want to host these images somewhere so we can point to them in the metadata of our tokens. Let's do it in a decentralized way and use Pinata to host them on IPFS.
+### ピニャータに登録
+ここで、これらの画像をどこかにホストして、トークンのメタデータでそれらを指すことができるようにします。分散型の方法でそれを行い、Pinataを使用してIPFSでそれらをホストしましょう。
 
-First you need an account on Pinata. Go to <a href="https://app.pinata.cloud/register" target="_blank">Pinata.cloud</a> and create an account. On Pinata you can upload up to 1 GB of data for free.
+まず、ピニャータのアカウントが必要です。 <a href="https://app.pinata.cloud/register" target="_blank"> Pinata.cloud </a>にアクセスして、アカウントを作成します。 Pinataでは、最大1GBのデータを無料でアップロードできます。
 
-Once you have signed up, you should be in the Pin Manager view.
+サインアップすると、ピンマネージャービューが表示されます。
 
-<img src="https://i.imgur.com/yKpD65m.png" alt="Pin Manager Pinata" width="300"/>
+<img src = "https://i.imgur.com/yKpD65m.png" alt="ピンマネージャーピニャータ" width= "300" />
 
 
-### Upload Images to IPFS
-Click on the upload button and upload the folder with your images.
-Once you've uploaded your folder, you should see the name of your folder and the CID (content identifier) associated with it. If the content in the folder changes, the CID will also change.
+### 画像をIPFSにアップロードする
+アップロードボタンをクリックして、画像を含むフォルダをアップロードします。
+フォルダをアップロードすると、フォルダの名前とそれに関連付けられているCID（コンテンツ識別子）が表示されます。フォルダのコンテンツが変更されると、CIDも変更されます。
 
-To access your folder on IPFS, enter this address "https://ipfs.io/ipfs/" and add your CID. For our current example, you can access your folder by using:
-<a href="https://ipfs.io/ipfs/QmTJok2tju9zstjtAqESdZxTiUiFCBAyApHiDVj4maV75P" target="_blank">
+IPFSでフォルダーにアクセスするには、このアドレス`https://ipfs.io/ipfs/`を入力してCIDを追加します。現在の例では、次を使用してフォルダにアクセスできます。
+<a href="https://ipfs.io/ipfs/QmTJok2tju9zstjtAqESdZxTiUiFCBAyApHiDVj4maV75P" target = "_ blank">
     https://ipfs.io/ipfs/QmTJok2tju9zstjtAqESdZxTiUiFCBAyApHiDVj4maV75P
 </a>
 
-You can access a specific image by using:
-<a href="https://ipfs.io/ipfs/QmTJok2tju9zstjtAqESdZxTiUiFCBAyApHiDVj4maV75P/geo_1.png" target="_blank">
+次を使用して特定の画像にアクセスできます。
+<a href="https://ipfs.io/ipfs/QmTJok2tju9zstjtAqESdZxTiUiFCBAyApHiDVj4maV75P/geo_1.png" target = "_ blank">
     https://ipfs.io/ipfs/QmTJok2tju9zstjtAqESdZxTiUiFCBAyApHiDVj4maV75P/geo_1.png
 </a>
 
-### Create JSON files
-We create another folder where we store three JSON files.
+### JSONファイルを作成する
+3つのJSONファイルを格納する別のフォルダーを作成します。
 ```
 geo-json
 ├── 0
@@ -46,10 +46,10 @@ geo-json
 ├── 2
 ```
 
-Inside the JSON files, create the metadata for the tokens, like name, description, and image.
-For the image URL, we are going to use the URL of our images on IPFS. You can add additional data if you like; in this example, we added some unique attributes for each token.
+JSONファイル内に、名前、説明、画像などのトークンのメタデータを作成します。
+画像のURLには、IPFS上の画像のURLを使用します。必要に応じて、データを追加できます。この例では、トークンごとにいくつかの一意の属性を追加しました。
 
-This is how the JSON for the first token could look:
+これは、最初のトークンのJSONがどのように見えるかを示しています。
 ```
 {
     "name": "Geometry#0",
@@ -64,7 +64,7 @@ This is how the JSON for the first token could look:
 }
 ```
 
-This is how the JSON for the second token could look:
+2番目のトークンのJSONは次のようになります。
 ```
 {
     "name": "Geometry#1",
@@ -78,25 +78,25 @@ This is how the JSON for the second token could look:
 }
 ```
 
-As shown above, the folder in this example is called "geo-json". Inside this folder, we have three JSON files. 
-The first JSON file is called "0", the second JSON file is called "1", and the third JSON file is called "2".
+上記のように、この例のフォルダーは「geo-json」と呼ばれます。このフォルダー内には、3つのJSONファイルがあります。
+最初のJSONファイルは「0」、2番目のJSONファイルは「1」、3番目のJSONファイルは「2」と呼ばれます。
 
-Make sure that your JSON files don't have a file ending and are named like their corresponding tokenIds.
-In the pin manager on pinata.cloud, click on the upload button and upload the folder with your JSON files.
+JSONファイルにファイルの末尾がなく、対応するtokenIdのように名前が付けられていることを確認してください。
+pinata.cloudのピンマネージャーで、アップロードボタンをクリックし、JSONファイルを含むフォルダーをアップロードします。
 
-To access your folder on IPFS, enter this address "https://ipfs.io/ipfs/" and add your CID. 
-For our current example, you can access your folder by using:
+IPFSでフォルダーにアクセスするには、このアドレス`https://ipfs.io/ipfs/`を入力してCIDを追加します。
+現在の例では、次を使用してフォルダにアクセスできます。
 <a href="https://ipfs.io/ipfs/QmVrsYxXh5PzTfkKZr1MfUN6PotJj8VQkGQ3kGyBNVKtqp" target="_blank">
     https://ipfs.io/ipfs/QmVrsYxXh5PzTfkKZr1MfUN6PotJj8VQkGQ3kGyBNVKtqp
 </a>
-This will become our baseURI.
+これがbaseURIになります。
 
-You can access a specific JSON file then by just adding a slash and the tokenId by using:
-<a href="https://ipfs.io/ipfs/QmVrsYxXh5PzTfkKZr1MfUN6PotJj8VQkGQ3kGyBNVKtqp/0" target="_blank">
+次に、以下を使用してスラッシュとtokenIdを追加するだけで、特定のJSONファイルにアクセスできます。
+<a href="https://ipfs.io/ipfs/QmVrsYxXh5PzTfkKZr1MfUN6PotJj8VQkGQ3kGyBNVKtqp/0" target = "_ blank">
     https://ipfs.io/ipfs/QmVrsYxXh5PzTfkKZr1MfUN6PotJj8VQkGQ3kGyBNVKtqp/0
 </a>
 
-In the contract, replace the baseURI with your own baseURI. In this example, the baseURI consists of the URL 
-"https://ipfs.io/ipfs/", the CID containing the JSON files, and a slash at the end "/".
+コントラクトで、baseURIを独自のbaseURIに置き換えます。この例では、baseURIはURLで構成されています
+`https://ipfs.io/ipfs/`、JSONファイルを含むCID、および末尾のスラッシュ「/」。
 
-An individual tokenURI will now be created for each token by adding the tokenId to the baseURI — exactly what we did manually in the example above to access the JSON file.
+これで、tokenIdをbaseURIに追加することで、トークンごとに個別のtokenURIが作成されます。これは、上記の例でJSONファイルにアクセスするために手動で行った方法とまったく同じです。

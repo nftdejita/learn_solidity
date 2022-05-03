@@ -1,39 +1,39 @@
-In this section, we will create a function to start the auction and a function to bid on the NFT.
+このセクションでは、オークションを開始する関数とNFTに入札する関数を作成します。
 
-### Start
-We use some control structures to check if necessary conditions are met before we let the seller start the auction.
+### 開始
+販売者にオークションを開始させる前に、いくつかの制御構造を使用して、必要な条件が満たされているかどうかを確認します。
 
-First, we check if the auction has already started (line 49). If it has started and our state variable `started` returns `true` we exit the function and throw an exception.
+まず、オークションがすでに開始されているかどうかを確認します（49行目）。それが開始され、ステート変数`started`が`true`を返す場合、関数を終了して例外をスローします。
 
-The second condition we check for is whether the seller is executing the function (line 50). We have already created a function to store the seller's address when they deploy the contract in the `seller` state variable and can now check if the account executing the start function is the seller. If not we throw an exception.
+チェックする2番目の条件は、売り手が関数を実行しているかどうかです（50行目）。コントラクトを`seller`ステート変数にデプロイするときにセラーのアドレスを格納する関数を既に作成しており、start関数を実行しているアカウントがセラーであるかどうかを確認できるようになりました。そうでない場合は、例外をスローします。
 
-Next, we want to transfer the NFT that is up for auction from the seller to the contract (line 52).
-We set the state variable `started` to `true` (line 53), and create an end date for the auction (line 54). In this case, it will be seven days from when the start function has been called. We can use a suffix like `days` after a literal number to specify units of time. If you want to learn more about time units have a look at the <a href="https://docs.soliditylang.org/en/latest/units-and-global-variables.html#time-units" target="_blank">solidity documentation</a>.
+次に、オークションにかけられているNFTを売り手から契約に転送します（52行目）。
+ステート変数`started`を`true`に設定し（53行目）、オークションの終了日を作成します（54行目）。この場合、start関数が呼び出されてから7日となります。リテラル数の後に`days`のような接尾辞を使用して、時間の単位を指定できます。時間単位について詳しく知りたい場合は、<a href="https://docs.soliditylang.org/en/latest/units-and-global-variables.html#time-units" target="_blank">Solidityに関するドキュメント</a>をご覧ください。 。
 
-Finally, we will emit our `Start()` event (line 56).
+最後に、 `Start()`イベントを発行します（56行目）。
 
-### Bid
-Before the function caller can make a bid, we need to be sure that certain conditions are met. The auction needs to have started (line 60), the auction can not have ended (line 61) and the bid (the value attached to the call) needs to be higher than the current highest bid (line 62).
+### 入札
+関数の呼び出し元が入札する前に、特定の条件が満たされていることを確認する必要があります。オークションを開始する必要があり（60行目）、オークションを終了することはできず（61行目）、入札（callに添付された値）は現在の最高入札額（62行目）よりも高い必要があります。
 
-Now we want to store the bid of the current highest bidder before we make a new bid. 
-First, we check if there is a bidder (line 64). If this function call is the first bid then the next line would be irrelevant.
-In our mapping `bids` (line 34) we map the key, the `address` of the bidder, to the value, a `uint` that represents the total amount of ETH a bidder has bid in the auction before withdrawing. 
-If there is a bidder, we add the last bid (`highestBid`) of the `highestBidder` to the total value of the bids they have made (line 65) before withdrawing.
-We store the bids because we want to enable the bidder to withdraw the ETH they used to make bids if they are no longer the highest bidder.
+ここで、新しい入札を行う前に、現在の最高入札者の入札額を保存します。
+まず、入札者がいるかどうかを確認します（64行目）。この関数呼び出しが最初の入札である場合、次の行は関係ありません。
+マッピング`bids`（34行目）では、入札者のキーである `address`を、入札者が撤回する前にオークションで入札したETHの合計額を表す値`uint`にマッピングします。
+入札者がいる場合は、「highestBidder」の最後の入札（ `highestBid`）を、撤回する前に行った入札の合計値（65行目）に加算します。
+入札者が最高入札者でなくなった場合に、入札者が入札に使用したETHを撤回できるようにするため、入札を保存します。
 
-Next, we set the `highestBidder` to the account calling the function (line 68), and the `highestBid` to their bid, the value that was sent with the call (line 69).
+次に、関数を呼び出すアカウントに `highestBidder`を設定し（68行目）、呼び出しで送信された値である入札に` highestBid`を設定します（69行目）。
 
-Finally, we emit the `Bid` event (line 71).
+最後に、 `Bid`イベントを発行します（71行目）。
 
-## ⭐️ Assignment
-1. Deploy an NFT contract. You can use the NFT contract that we create in our "Solidity NFT Course" Learneth course.
+## ⭐️課題
+1. NFT契約を展開します。 「SolidityNFTコース」Learnethコースで作成したNFT契約を使用できます。
 
-2. Mint yourself an NFT with the tokenId 0.
+2. tokenId0を使用してNFTを作成します。
 
-3. Deploy this EnglishAuction contract. Use the address of the NFT contract as an argument for the `_nft` parameter, 0 for `_nftId`, and 1 for `_startingBid`.
+3. このEnglishAuction契約を展開します。 NFTコントラクトのアドレスを`_nft`パラメータの引数として使用し、` _nftId`の場合は0、`_startingBid`の場合は1を使用します。
 
-4. Call the `approve` function of your NFT contract with the address of the auction contract as an argument for the `to` parameter, and 0 for `tokenId`. This will allow the contract to transfer the token to be auctioned.
+4. 　`to`パラメータの引数としてオークション契約のアドレスを使用し、`tokenId`の場合は0を使用してNFT契約の`approve`関数を呼び出します。これにより、契約はオークションにかけられるトークンを転送することができます。
 
-5. Call the `start` function of your auction contract. If you call the `started` function now, it should return `true`. If you call the `highestBid` function it should return 1.
+5. オークション契約の「開始」機能を呼び出します。ここで`started`関数を呼び出すと、`true`が返されます。 `highestBid`関数を呼び出すと、1が返されます。
 
-6. Set the value that you can attach to transactions to 3 Wei and call the `bid` function of the auction contract. If you call the `highestBid` function it should now return 3.
+6. トランザクションに添付できる値を3Weiに設定し、オークション契約の「入札」機能を呼び出します。 `highestBid`関数を呼び出すと、3が返されるはずです。

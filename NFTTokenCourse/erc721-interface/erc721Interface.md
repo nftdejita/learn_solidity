@@ -1,68 +1,68 @@
-ERC721 is a standard for token contracts that manage non-fungible tokens (NFTs) on the Ethereum blockchain.
+ERC721は、イーサリアムブロックチェーン上の非代替トークン（NFT）を管理するトークンコントラクトの標準です。
 
-Each non-fungible token is unique and not interchangeable. NFTs can have different properties, behavior, or rights. Non-fungible tokens are used to represent ownership of unique digital and physical assets like art, collectibles, or real estate.
+各非代替トークンは一意であり、互換性はありません。 NFTは、さまざまなプロパティ、動作、または権限を持つことができます。非代替トークンは、アート、収集品、不動産などの固有のデジタルおよび物理的資産の所有権を表すために使用されます。
 
-If you want to know more about the ERC721 token standard, have a look at the specifications in its <a href="https://eips.ethereum.org/EIPS/eip-721" target="_blank">Ethereum improvement proposal</a>.
+ERC721トークン標準について詳しく知りたい場合は、その<a href="https://eips.ethereum.org/EIPS/eip-721" target="_blank">Ethereum改善提案</a>の仕様を参照してください。 
 
-## Interface
-The ERC721 standard is more complex than the ERC20 standard and it features optional extensions. ERC721 compliant contracts must, at a minimum, implement the ERC721 and ERC165 interfaces, which we will look at in this section.
+## 基本仕様
+ERC721標準はERC20標準よりも複雑で、オプションの拡張機能を備えています。 ERC721準拠のコントラクトは、少なくともERC721およびERC165インターフェイスを実装する必要があります。これについては、このセクションで説明します。
 
-This interface (line 11) is part of the open-source contract library provided by <a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/IERC721.sol" target="_blank">OpenZeppelin</a>.
+このインターフェース（11行目）は、<a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/IERC721.sol" target = "_ blank">OpenZeppelin</a>によって提供されるオープンソースコントラクトライブラリの一部です。
 
-## IERC721 Functions
-Contracts compliant with the ERC20 standard have to implement the following functions:
+## IERC721関数
+ERC20標準に準拠するコントラクトでは、次の機能を実装する必要があります。
 
 ### balanceOf
-The function `balanceOf` (line 30) returns the amount of tokens owned by the account with the address `owner`.
+関数`balanceOf`（30行目）は、アドレス`owner`を持つアカウントが所有するトークンの量を返します。
 
 ### ownerOf
-The function `ownerOf` (line 39) returns the address `owner` of the account that holds the token with the id `tokenId`.
+関数`ownerOf`（39行目）は、IDが`tokenId`のトークンを保持しているアカウントのアドレス`owner`を返します。
 
 ### safeTransferFrom
-The function `safeTransferFrom` (line 55) transfers the ownership of a token with the id `tokenId` from the account with the address `from` to the account with the address `to`.
+関数`safeTransferFrom`（55行目）は、アドレス`from`のアカウントからアドレス`to`のアカウントにID`tokenId`のトークンの所有権を譲渡します。
 
-The function `safeTransferFrom` (line 137) is almost identical to the function `safeTransferFrom` (line 55) .The only difference is that this function has a non-empty payload `data`.
+関数`safeTransferFrom`（137行目）は、関数` safeTransferFrom`（55行目）とほぼ同じです。唯一の違いは、この関数のペイロードが空でない`data`であるということです。
 
-A smart contract must implement the ERC721TokenReceiver Interface if it is to receive a transfer. This will ensure that the contract can handle ERC721 token transfers and prevent the tokens from being locked in a contract that can’t.
+スマートコントラクトは、転送を受信する場合、ERC721TokenReceiverインターフェイスを実装する必要があります。これにより、コントラクトがERC721トークンの転送を処理できるようになり、トークンがロックできないコントラクトにロックされるのを防ぐことができます。
 
 ### transferFrom
-The function `transferFrom` (line 55) transfers the ownership of a token with the id `tokenId` from the account with the address `from` to the account with the address `to`.
+関数`transferFrom`（55行目）は、IDが` tokenId`のトークンの所有権を、アドレスが`from`のアカウントからアドレスが`to`のアカウントに転送します。
 
-**It is recommended to use safeTransferFrom instead of transferFrom whenever possible.**
-The `transferFrom` function is not secure because it doesn’t check if the smart contract that is the recipient of the transfer has implemented the ERC721TokenReceiver interface and is capable of handling ERC721 tokens.
+**可能な限り、transferFromの代わりにsafeTransferFromを使用することをお勧めします。**
+`transferFrom`関数は、転送の受信者であるスマートコントラクトがERC721TokenReceiverインターフェイスを実装しており、ERC721トークンを処理できるかどうかをチェックしないため、安全ではありません。
 
 ### approve
-The function `approve` (line 94) gives the account with the address `to` the permission to manage the token with the id `tokenId` on behalf of the account calling the function.
+関数`approve`（94行目）は、アドレス` to`のアカウントに、関数を呼び出すアカウントに代わってID`tokenId`のトークンを管理する権限を与えます。
 
 ### getApproved
-The function `getApproved` (line 103) returns the address `operator` of the account that is approved to manage the token with the id `tokenId`.
+関数`getApproved`（103行目）は、IDが`tokenId`のトークンの管理が承認されているアカウントのアドレス`operator`を返します。
 
 ### setApprovalForAll
-The function `setApprovalForAll` (line 115) gives or removes the permission (`_approved`) to the account with the address `operator` to manage all tokens of the account calling the function.
+関数`setApprovalForAll`（115行目）は、関数を呼び出すアカウントのすべてのトークンを管理するために、アドレス` operator`を持つアカウントに権限（ `_authorized`）を付与または削除します。
 
 ### isApprovedForAll
-The function `getApproved` (line 103) returns the boolean true if the account with the address `operator` is approved to manage all tokens of the account with the address `owner`.
+関数`getApproved`（103行目）は、アドレス` operator`のアカウントが、アドレス `owner`のアカウントのすべてのトークンを管理することを承認された場合、ブール値trueを返します。
 
-## IERC721 Events
-ERC721 contracts must also emit the following events:
+## IERC721イベント
+ERC721コントラクトは、次のイベントも発行する必要があります。
 
-### Transfer
-The `Transfer` event (line 15) must be emitted when the token with the id `tokenId` is transferred from the account with the address `from` to the account with the address  `to`.
+### Transfer Event
+IDが`tokenId`のトークンが、アドレスが`from`のアカウントからアドレスが`to`のアカウントに転送されるときに、 `Transfer`イベント（15行目）を発行する必要があります。
 
-### Approval
-The `Approval` event (line 20) must be emitted when the account with the address `owner` approves the account with the address `spender` to manage the token with the id `tokenId` on its behalf.
+### Approval Event
+`Approval`イベント（20行目）は、アドレス`owner`のアカウントがアドレス`spender`のアカウントを承認して、ID`tokenId`のトークンを管理するときに発行する必要があります。
 
-### ApprovalForAll
-The `ApprovalForAll` event (line 25) must be emitted when the account with the address `owner` gives or removes the permission (`_approved`) of the account with the address `operator` to manage all its tokens.
+### ApprovalForAll Event
+`ApprovalForAll`イベント（25行目）は、アドレス` owner`のアカウントが、アドレス `operator`のアカウントにすべてのトークンを管理する許可（` _authorized`）を付与または削除したときに発行される必要があります。
 
 ## IERC165
-In addition to the ERC721 interface, ERC721 compliant contracts must also implement the ERC165 interface.
+ERC721インターフェースに加えて、ERC721準拠のコントラクトはERC165インターフェースも実装する必要があります。
 
-With the implementation of the ERC165 interface, contracts can declare the support of specific interfaces. A contract that wants to interact with another contract can then query if the other contract supports this interface before making a transaction e.g. sending tokens to it that they might not support.
+ERC165インターフェースの実装により、コントラクトは特定のインターフェースのサポートを宣言できます。別のコントラクトと対話したいコントラクトは、トランザクションを行う前に、他のコントラクトがこのインターフェースをサポートしているかどうかを照会できます。サポートされていない可能性のあるトークンを送信します。
 
-Our IERC721 interface here imports (line 6) and inherits (line 11) from the IERC165 interface.
+ここでのIERC721インターフェースは、IERC165インターフェースからインポート（6行目）および継承（11行目）します。
 
-This is how <a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/introspection/IERC165.sol" target="_blank">OpenZeppelins implementation</a> of the ERC165 interface looks like:
+これは、<a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/introspection/IERC165.sol" target="_blank">OpenZeppelinsの実装</a>の方法です。 ERC165インターフェースは次のようになります。
 
 ```
 interface IERC165 {
@@ -70,13 +70,13 @@ interface IERC165 {
 }
 ```
 
-For example, the ERC165 identifier for the ERC721 interface as specified in the EIP721 is “0x80ac58cd”. Learn how to calculate an interface identifier and more about the ERC165 in its <a href="https://eips.ethereum.org/EIPS/eip-165" target="_blank">improvement proposal</a>.
+たとえば、EIP721で指定されているERC721インターフェイスのERC165識別子は「0x80ac58cd」です。インターフェイス識別子の計算方法と詳細については、<a href="https://eips.ethereum.org/EIPS/eip-165" target="_blank">改善提案</a>をご覧ください
 
-## Other interfaces
-The <a href="https://eips.ethereum.org/EIPS/eip-721#specification" target="_blank">IERC721TokenReceiver</a> interface must be implemented to accept safe transfers.
+## その他のインターフェース
+安全な転送を受け入れるには、<a href="https://eips.ethereum.org/EIPS/eip-721#specification" target="_blank">IERC721TokenReceiver</a>インターフェースを実装する必要があります。
 
-There are two optional extensions for ERC721 contracts specified in the EIP721:
+EIP721で指定されているERC721コントラクトには2つのオプションの拡張機能があります。
 
-IERC721Enumerable enables a contract to publish its full list of tokens and make them discoverable.
+IERC721Enumerableを使用すると、コントラクトでトークンの完全なリストを公開し、それらを検出可能にすることができます。
 
-IERC721Metadata enables a contract to associate additional information to a token. We will have a more detailed look into this in the next section.
+IERC721Metadataを使用すると、コントラクトで追加情報をトークンに関連付けることができます。 これについては、次のセクションで詳しく説明します。

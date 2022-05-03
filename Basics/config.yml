@@ -1,7 +1,18 @@
 --- 
 id: basics
-name: Remix Basics
+name: 01 Remixの基本操作
 summary: A typical workflow in Remix
 level: 1
 tags: 
   - Remix
+steps:
+  - name: 1. インターフェース概要
+    path: 1._Interface_introduction
+  - name: 2. ソースのロードとコンパイル
+    path: 2._Load_and_compile
+  - name: 3. デプロイ方法
+    path: 3._Deploy_to_the_JavascriptVM
+  - name: 4. コントラクトの操作
+    path: 4._Interacting
+  - name: 5. デプロイ先の変更
+    path: 5._Deploy_Injected

@@ -1,54 +1,54 @@
-In this section of the course, we will give you a theoretical introduction to blockchain-based tokens.
+コースのこのセクションでは、ブロックチェーンベースのトークンの理論的な紹介を行います。
 
-Blockchain tokens are a new technological building block created by blockchain technology (like websites were for the internet) that enables a decentralized, ownable internet (web3).
+ブロックチェーントークンは、ブロックチェーンテクノロジー（Webサイトがインターネット用であったように）によって作成された新しいテクノロジービルディングブロックであり、分散型の所有可能なインターネット（web3）を可能にします。
 
-### Introduction
-In the context of web3, tokens represent ownership. Tokens can represent ownership of anything: art, reputation, items in a video game, shares in a company, voting rights, or currencies.
+### 序章
+web3のコンテキストでは、トークンは所有権を表します。トークンは、アート、評判、ビデオゲームのアイテム、会社の株式、議決権、通貨など、あらゆるものの所有権を表すことができます。
 
-The revolutionary innovation of blockchain technology is that it allows data to be stored publicly in an immutable (unchangeable) way.
-This new form of data storage allows us to keep track of ownership and enable truly ownable digital items for the first time.
+ブロックチェーンテクノロジーの革新的な革新は、データを不変の（変更できない）方法で公に保存できるようにすることです。
+この新しい形式のデータストレージにより、所有権を追跡し、真に所有可能なデジタルアイテムを初めて有効にすることができます。
 
-Blockchain Technology was originally invented to keep track of the ownership of Bitcoin, a decentralized digital currency and fungible token.
+Blockchain Technologyは元々、分散型デジタル通貨で代替可能なトークンであるビットコインの所有権を追跡するために発明されました。
 
-### Fungible and non-fungible tokens
-Assets like money: Bitcoin or a one-dollar bill, for example, are fungible. Fungible means that all assets are the same and are interchangeable. Assets like art, collectibles, or houses are non-fungible; they are all different and not interchangeable.   
+### 代替可能および代替不可能なトークン
+お金のような資産：たとえば、ビットコインや1ドル紙幣は代替可能です。代替可能とは、すべての資産が同じであり、交換可能であることを意味します。アート、収集品、家などの資産は代替可能ではありません。それらはすべて異なり、互換性はありません。
 
-We can divide tokens into these two types: fungible tokens, where all tokens are the same, and non-fungible tokens (NFTs), where every token is unique.
+トークンは、すべてのトークンが同じである代替可能トークンと、すべてのトークンが一意である非代替トークン（NFT）の2つのタイプに分けることができます。
 
-### Token standard
-The behavior of a token is specified in its smart contract (token contract). The contract could, for example, include the functionality to transfer a token or check for its total supply.
+### トークン標準
+トークンの動作は、スマートコントラクト（トークンコントラクト）で指定されます。コントラクトには、たとえば、トークンを転送したり、トークンの総供給量をチェックしたりする機能を含めることができます。
 
-If everybody would create their own token contracts with different behavior and naming conventions, it would make it very hard for people to build contracts or applications that are able to interact with each other.
+誰もが異なる動作と命名規則で独自のトークンコントラクトを作成する場合、人々が相互に対話できるコントラクトまたはアプリケーションを構築することは非常に困難になります。
 
-The Ethereum community has developed token standards that define how a developer can create tokens that are interoperable (able to work with others) with other contracts, products, and services. Contracts developed under these standards need to include a certain set of functions and events.
+イーサリアムコミュニティは、開発者が他のコントラクト、製品、およびサービスと相互運用可能な（他のユーザーと連携できる）トークンを作成する方法を定義するトークン標準を開発しました。これらの基準に基づいて開発されたコントラクトには、特定の機能とイベントのセットを含める必要があります。
 
-The most popular token standards are the ERC20 for fungible tokens and the ERC721 for non-fungible tokens. In this course, we will learn how to create and interact with NFTs, tokens created with the ERC721 token standard.
+最も人気のあるトークン標準は、代替可能トークン用のERC20と非代替可能トークン用のERC721です。このコースでは、ERC721トークン標準で作成されたトークンであるNFTを作成して操作する方法を学習します。
 
-If you want to learn more about fungible tokens and the ERC20 token standard, have a look at the Learneth ERC20 Token Course. 
+代替可能トークンとERC20トークン標準について詳しく知りたい場合は、LearnethERC20トークンコースをご覧ください。
 
-The ERC777 is a fungible token standard, like the ERC20, that includes more advanced features like hooks while remaining backward compatible with ERC20. Learn more about the ERC777 in its <a href="https://eips.ethereum.org/EIPS/eip-777" target="_blank">EIP (Ethereum improvement proposal)</a>.
+ERC777は、ERC20との下位互換性を維持しながら、フックなどのより高度な機能を含む、ERC20のような代替可能なトークン標準です。 ERC777の詳細については、<a href="https://eips.ethereum.org/EIPS/eip-777" target="_blank"> EIP（イーサリアム改善提案）</a>をご覧ください。
 
-The ERC1155 is a multi-token standard that allows a single contract to manage different types of tokens, such as fungible, non-fungible, or semi-fungible tokens.
-Learn more about the ERC1155 in its <a href="https://eips.ethereum.org/EIPS/eip-1155" target="_blank">EIP</a>.
+ERC1155はマルチトークン標準であり、単一のコントラクトで、代替可能、非代替可能、または半代替可能トークンなどのさまざまなタイプのトークンを管理できます。
+ERC1155の詳細については、<a href="https://eips.ethereum.org/EIPS/eip-1155" target="_blank">EIP</a>をご覧ください。
 
-## ⭐️ Assignment
-For this assignment, we will test your knowledge via a short quiz.
-Assign the number of the best answer to the variables `question1` (line 5), 
-`question2` (line 6), `question3` (line 7) in the `Quiz` contract (line 4). 
+## ⭐️課題
+この課題では、短いクイズで知識をテストします。
+変数`question1`（5行目）にベストアンサーの番号を割り当てます。
+`Quiz`コントラクト（4行目）の`question2`（6行目）、 `question3`（7行目）。
 
-### Question 1:
-Why are blockchain-based tokens so revolutionary?
-1. Because people can now make investments anonymously. 
-2. Because they represent ownership in digital assets that can be owned and transferred.
-3. Because you can use tokens to make transactions without having to pay taxes.
+### 質問1：
+ブロックチェーンベースのトークンが非常に革新的であるのはなぜですか？
+1. 人々は今や匿名で投資を行うことができるからです。
+2. 所有および譲渡できるデジタル資産の所有権を表すため。
+3. トークンを使用して、税金を支払うことなく取引を行うことができるため。
 
-### Question 2:
-Why did the community create token standards?
-1. So that the community can control and approve the tokens that are created.
-2. In order to restrict the functionality of tokens to safe and non-malicious actions.
-3. So that the community can create tokens that are interoperable with other contracts, products, and services.
+### 質問2：
+なぜコミュニティはトークン標準を作成したのですか？
+1. コミュニティが、作成されたトークンを制御および承認できるようにします。
+2. トークンの機能を安全で悪意のないアクションに制限するため。
+3. コミュニティが他のコントラクト、製品、およびサービスと相互運用可能なトークンを作成できるようにします。
 
-### Question 3:
-If you would create a decentralised application for a baseball trading card game where each baseball player would be represented by a token, what token standard would you use to write the token contract?
-1. ERC20
-2. ERC721
+### 質問3：
+各野球選手がトークンで表される野球トレーディングカードゲームの分散型アプリケーションを作成する場合、トークンコントラクトを作成するためにどのトークン標準を使用しますか？
+1.  ERC20
+2.  ERC721

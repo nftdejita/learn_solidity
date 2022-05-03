@@ -1,31 +1,37 @@
-In this contract, we use an ERC721 token contract implementation from OpenZeppelin (line 4). 
+このコントラクトでは、OpenZeppelinのERC721トークンコントラクトの実装を使用します（4行目）。
 
-Have a look at their implementation of a <a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol" target="_blank">ERC721 contract</a>. Apart from the functionality specified in the ERC721 standard, the contract provides additional functions which we will see in a bit.
+<a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol" target="_blank">ERC721コントラクト</a>の実装をご覧ください。 ERC721標準で指定されている機能とは別に、コントラクトは、後で説明する追加の機能を提供します。
 
-## myToken 
-We create our own contract called MyToken (line 7), which inherits (line 7) the functionality from the OpenZepplin `ERC721` token contract implementation and `Ownable` that we imported (line 4). If you don't remember the Ownable contract module, have a look at the ERC20 extensions section.
+## myToken
+MyToken（7行目）と呼ばれる独自のコントラクトを作成します。これは、OpenZepplinの `ERC721`トークンコントラクト実装とインポートした`Ownable`（4行目）から機能を継承します（7行目）。所有可能なコントラクトモジュールを覚えていない場合は、ERC20拡張機能のセクションをご覧ください。
 
-This ERC721 implementation makes use of the IERC721Metadata extension that is specified in the EIP. Our contract inherits the functions `name()` and `symbol()` 
-and has a constructor that allows their values to be set during the deployment of the contract (line 8). 
-In this case, we are going to use the default values. We name our token the same as the contract `"MyToken"` and make `"MTK"` its symbol.
+このERC721実装は、EIPで指定されているIERC721Metadata拡張機能を利用します。私たちのコントラクトは関数`name（）`と `symbol（）`を継承します
+コントラクトのデプロイ中に値を設定できるようにするコンストラクターがあります（8行目）。
+この場合、デフォルト値を使用します。トークンにコントラクト`"MyToken "`と同じ名前を付け、`"MTK"`をそのシンボルにします。
 
 ### Base URI
-With an ERC721 contract, we are able to mint various tokens, each with its own tokenId. As we saw in the IERC721Metadata interface, each token can have its own `tokenURI`, which typically points to a JSON file to store metadata like name, description, and image link.
-If a contract mints multiple tokens, ERC721 implementations often use the same URI as a base (`baseURI`) for all tokens and only differentiate them by adding their unique `tokenId` at the end via concatenation. In the next part, we will see what this looks like in practice.
+ERC721コントラクトを使用すると、それぞれが独自のtokenIdを持つさまざまなトークンを作成できます。 IERC721Metadataインターフェースで見たように、各トークンは独自の `tokenURI`を持つことができます。これは通常、名前、説明、画像リンクなどのメタデータを格納するJSONファイルを指します。
 
-In this example, we are storing our data on IPFS — more on that in the next section. Our baseURI is <a href="https://ipfs.io/ipfs/QmUYLUKwqX6CaZxeiYGwmAYeEkeTsV4cHNZJmCesuu3xKy/" target="_blank">https://ipfs.io/ipfs/QmUYLUKwqX6CaZxeiYGwmAYeEkeTsV4cHNZJmCesuu3xKy/</a> (line 11).
-Through concatenation the tokenURI for the token with the id 0 would be <a href="https://ipfs.io/ipfs/QmUYLUKwqX6CaZxeiYGwmAYeEkeTsV4cHNZJmCesuu3xKy/0" target="_blank">https://ipfs.io/ipfs/QmUYLUKwqX6CaZxeiYGwmAYeEkeTsV4cHNZJmCesuu3xKy/0</a> , the tokenURI for the token with the id 1 would be <a href="https://ipfs.io/ipfs/QmUYLUKwqX6CaZxeiYGwmAYeEkeTsV4cHNZJmCesuu3xKy/1" target="_blank">https://ipfs.io/ipfs/QmUYLUKwqX6CaZxeiYGwmAYeEkeTsV4cHNZJmCesuu3xKy/1</a>, and so on.
+コントラクトが複数のトークンを作成する場合、ERC721実装は多くの場合、すべてのトークンのベース（ `baseURI`）として同じURIを使用し、連結によって最後に一意の`tokenId`を追加することによってのみそれらを区別します。次のパートでは、これが実際にどのように見えるかを見ていきます。
 
-When using IPFS and you run into "504 Gateway Time-out" errors, you might have to wait and retry until the data is available.
+この例では、データをIPFSに保存しています。これについては次のセクションで詳しく説明します。 
+
+baseURIは<a href="https://ipfs.io/ipfs/QmUYLUKwqX6CaZxeiYGwmAYeEkeTsV4cHNZJmCesuu3xKy/" target = "_ blank"> https://ipfs.io/ipfs/QmUYLUKwqX6CaZxeiYGwmAYeEkeTsV4c </a>　(11行目)となります。
+
+このためIDが0のtokenURIは<a href="https://ipfs.io/ipfs/QmUYLUKwqX6CaZxeiYGwmAYeEkeTsV4cHNZJmCesuu3xKy/0" target="_blank"> https://ipfs.io/ipfs/QmUYLUKwqX6CaZxei/0</a>となり、
+
+IDが1のtokenURIは<a href="https://ipfs.io/ipfs/QmUYLUKwqX6CaZxeiYGwmAYeEkeTsV4cHNZJmCesuu3xKy/1" target="_blank">https://ipfs.io/ipfs/QmUYLUKwqX6CaZxeiYGwmAYeEkeTsV4cHNZJmCesuu3xKy/1</a>となるでしょう。
+
+IPFSを使用していて、「504ゲートウェイタイムアウト」エラーが発生した場合、データが利用可能になるまで待機して再試行する必要がある場合があります。
 
 ### safeMint
-With the safeMint function (line 14) we enable the owner to create new tokens with a dedicated token id after contract deployment.
-The safeMint function is part of the ERC721 implementation of OpenZeppelin and lets us safely mint a token with the id `tokenId` to the account with the address `to`. For access control, we use the `onlyOwner` modifier from the Ownable access control contract module that we imported (line 5).
+safeMint関数（14行目）を使用すると、コントラクトの展開後に、所有者が専用のトークンIDを使用して新しいトークンを作成できるようになります。
+safeMint関数はOpenZeppelinのERC721実装の一部であり、アドレス`to`のアカウントにID`tokenId`のトークンを安全にミントすることができます。アクセス制御には、インポートしたOwnableアクセス制御コントラクトモジュールの `onlyOwner`修飾子を使用します（5行目）。
 
-In the next section, we will see how we can create and host the metadata for our NFTs.
+次のセクションでは、NFTのメタデータを作成してホストする方法を説明します。
 
-## ⭐️ Assignment
-1. Rename your contract to `Geometry`.
-2. Rename your token to `Geometry`.
-3. Change the symbol of your token to `GEO`.
-4. Change the `_baseURI` to <a href="https://ipfs.io/ipfs/QmVrsYxXh5PzTfkKZr1MfUN6PotJj8VQkGQ3kGyBNVKtqp/" target="_blank">https://ipfs.io/ipfs/QmVrsYxXh5PzTfkKZr1MfUN6PotJj8VQkGQ3kGyBNVKtqp/</a>.
+## ⭐️課題
+1. コントラクトの名前を`Geometry`に変更します。
+2. トークンの名前を`Geometry`に変更します。
+3. トークンのシンボルを`GEO`に変更します。
+4. `_baseURI`を<a href="https://ipfs.io/ipfs/QmVrsYxXh5PzTfkKZr1MfUN6PotJj8VQkGQ3kGyBNVKtqp/" target="_blank">https://ipfs.io/ipfs/QmVrsYxXh5PzTfkKZr1MfUN6PotJj8VQkGQ3kGyBNVKtqp/</a>にします。

@@ -29,5 +29,5 @@
 
 <a href="https://www.youtube.com/watch?v=je7dWT6bEZM" target="_blank">関数出力に関するビデオチュートリアルをご覧ください</a>。
 
-## ⭐️問題
+## ⭐️課題
 returnステートメントを使用せずに値`-2`と`true`を返す`returnTwo`という新しい関数を作成します。

@@ -1,5 +1,5 @@
-## Interactive Solidity Token Course
+## ERC20トークン
 
-Learn to understand and create ERC20 tokens.
+このチュートリアルでは、Ethereum において暗号資産を作成するためのトークン規格であるERC20について解説します。
 
-Developed by the p2p learning platform https://dacade.org.
+本稿のオリジナルメソッドはインターネット学習プラットフォーム [Dacade](https://dacade.org)で開発されたものです。

@@ -1,18 +1,18 @@
-The metadata extension is optional. It allows us to add additional information to our ERC721 tokens. We can specify a name, a symbol, and an URI (Uniform Resource Identifier) that can point to a file where we can add even more information in the form of a JSON.
+メタデータ拡張はオプションです。これにより、ERC721トークンに追加情報を追加できます。名前、シンボル、およびJSON形式でさらに多くの情報を追加できるファイルを指すことができるURI（Uniform Resource Identifier）を指定できます。
 
-## ERC721 Metadata Functions
+## ERC721メタデータ関数
 
 ### name
-The function `name` (line 16) returns the name of the token collection. A token collection means all tokens created with your ERC721 token contract implementation. Every token in this collection will have this name, regardless of their tokenId.
+関数`name`（16行目）は、トークンコレクションの名前を返します。トークンコレクションとは、ERC721トークンコントラクトの実装で作成されたすべてのトークンを意味します。このコレクション内のすべてのトークンには、tokenIdに関係なく、この名前が付けられます。
 
 ### symbol
-The function `symbol` (line 21) returns the symbol of the token collection.
+関数`symbol`（21行目）は、トークンコレクションのシンボルを返します。
 
 ### tokenURI
-The function `tokenURI` (line 26) returns the URI for the token with the id `tokenId`. In this case it’s not the URI of the whole collection but of an individual token in the collection.
+関数`tokenURI`（26行目）は、IDが`tokenId`のトークンのURIを返します。この場合、それはコレクション全体のURIではなく、コレクション内の個々のトークンのURIです。
 
-## ERC721 Metadata JSON Schema
-The file that the tokenURI points to should conform to the Metadata JSON Schema as it is specified in the <a href="https://eips.ethereum.org/EIPS/eip-721#specification" target="_blank">EIP-721</a>.
+## ERC721メタデータJSONスキーマ
+tokenURIが指すファイルは、<a href="https://eips.ethereum.org/EIPS/eip-721#specification" target="_blank">EIP-721</a>で指定されているメタデータJSONスキーマに準拠している必要があります。
  
 ```
 {
@@ -34,6 +34,7 @@ The file that the tokenURI points to should conform to the Metadata JSON Schema 
     }
 }
 ```
-The root element must be of the type object. This root object should have properties with the keys: name, description, and image that should be all of the type string.
 
-The ERC721 standard is pretty flexible, the tokenURI does not need to point to a JSON document and the JSON does not need to have all properties and often has additional properties.
+ルート要素はオブジェクト型である必要があります。このルートオブジェクトには、name、description、imageのキーを持つプロパティが必要です。これらのプロパティはすべて文字列型である必要があります。
+
+ERC721標準は非常に柔軟性があり、tokenURIはJSONドキュメントを指す必要はなく、JSONはすべてのプロパティを持っている必要はなく、多くの場合、追加のプロパティを持っています。

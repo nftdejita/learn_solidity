@@ -20,7 +20,7 @@ Solidityは、 `for`、` while`、および`do while`ループの3つのタイ�
 
 <a href="https://www.youtube.com/watch?v=SB705OK3bUg" target="_blank">ループステートメントに関するビデオチュートリアルをご覧ください</a>。
 
-## ⭐️問題
+## ⭐️課題
 1. `Loop`コントラクトにcountというパブリック`uint`状態変数を作成します。
 2. forループの最後で、カウント変数を1ずつ増やします。
 3. count変数が9になるようにしますが、`break`ステートメントを編集しないようにしてください。

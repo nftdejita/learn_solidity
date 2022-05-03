@@ -1,5 +1,5 @@
 ## Solidityの基本
 
-人気のあるhttps://solidity-by-example.org/ コントラクトに基づいて、最も重要なSolidity初心者の概念をインタラクティブに学びます。
+このチュートリアルでは、Ethereum Contractの言語であるSolidityの言語仕様について解説します。
 
-p2p学習プラットフォームhttps://dacade.org によって開発されました。
+本稿のオリジナルメソッドはインターネット学習プラットフォーム [Dacade](https://dacade.org)で開発されたものです。

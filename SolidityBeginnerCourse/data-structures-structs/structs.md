@@ -20,5 +20,5 @@ Solidityでは、カスタムデータ型を*構造体*の形式で定義でき�
 
 <a href="https://www.youtube.com/watch?v=kYBHq7EmFBc" target="_blank">Structsのビデオチュートリアルをご覧ください</a>。
 
-## ⭐️問題
+## ⭐️課題
 パラメータとして`uint`を取り、`todos`マッピングで指定されたインデックスを持つ構造体メンバーを削除する関数`remove`を作成します。

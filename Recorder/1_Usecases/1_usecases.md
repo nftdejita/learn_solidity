@@ -1,7 +1,6 @@
-1. You want to show someone what happens when you do a number of transactions with a contract and you don't want to explain each step - you just want to get them to the last step.
+1. ある契約でいくつもの取引をしたときに何が起こるかを誰かに見せたいときに、各ステップを説明するのではなく、ただ最後のステップまで持っていきたいとき。
+    - 誰かに自分のコードの問題点を示すため。
+    - 授業で、生徒をある場所まで連れて行き、そこから作業を始めさせたいとき。
 
-    - To show someone a problem in their code.
 
-    - In a class, to get the students to a certain place and have them start working from there.
-
-2. You want to start your development in the JavascriptVM because it is quick and then to switch to another testnet - but you don't want to manually repeat all the tedious clicking for each different network.
+2. JavascriptVMで開発を始めて、すぐに他のテストネットに切り替えたいが、異なるネットワークごとにすべての面倒なクリックを手動で繰り返したくない場合。

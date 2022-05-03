@@ -1,7 +1,16 @@
 --- 
 id: recorder
-name: Recorder
+name: record機能の使い方
 summary: Save a set of actions and replay and replay and replay
 level: 2
 tags: 
   - Remix
+steps:
+  - name: 1. 想定される利用方法
+    path: 1_Usecases
+  - name: 2. シナリオ記録方法
+    path: 2_Record
+  - name: 3. シナリオ編集方法
+    path: 3_Editing_a_Senario
+  - name: 4. シナリオ再生方法
+    path: 4_Play

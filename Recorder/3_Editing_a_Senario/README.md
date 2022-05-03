@@ -1,6 +1,6 @@
-# Editing a scenario
+# シナリオを編集する
 
-Here's the first few lines of the scenario that I recorded.  The addresses on my machine will be different from your's.
+以下は、私が記録したシナリオの最初の数行です。 私のマシンのアドレスはあなたのマシンのとは異なるでしょう。
 
 ```
 {
@@ -11,11 +11,12 @@ Here's the first few lines of the scenario that I recorded.  The addresses on my
     }
 ```
 
-So if you wanted to play this scenario in another testnet, you'd need to change these addresses to address that you have test ETH on so that you could pay for the transactions.  But other than swapping out the addresses, you can quickly run this on other nets.
 
-And you might change the parameters for the functions.
+このシナリオを別のテストネットでプレイする場合は、これらのアドレスをテスト用ETHがあるアドレスに変更し、トランザクションの支払いを行えるようにする必要があります。 しかし、アドレスを交換する以外は、他のネットですぐに実行することができます。
 
-For example here is a bit of the scenario.json a bit further down where proposal 2 was voted for by one of the addresses:
+そして、関数のパラメータを変更することもできます。
+
+例えば、scenario.jsonの少し下に、提案2がアドレスの1つによって投票された部分があります。
 
 ```
 {
@@ -35,18 +36,22 @@ For example here is a bit of the scenario.json a bit further down where proposal
     },
 ```
 
-Let's edit this so that another proposal wins in the playback. 
 
-Change the **parameters** array which now is:
+これを編集して、プレイバックで別の案が勝つようにしましょう。
+
+**parameters** 配列を変更します。
+
 ```
 "parameters": [
           "2"
         ]
 ```
-to:
+これを
 
 ```
 "parameters": [
           "1"
         ]
 ```
+に変更します。
+

@@ -26,7 +26,7 @@ enumキーワードを使用して列挙型を定義し、その後に作成す�
 
 <a href="https://www.youtube.com/watch?v=yJbx07N15j0"target="_blank">Enumsのビデオチュートリアルをご覧ください</a>。
 
-## ⭐️問題
+## ⭐️課題
 
 1. メンバー`S`、` M`、および`L`を使用して`Size`という列挙型を定義します。
 2. 列挙型`Size`の変数`sizes`を初期化します。

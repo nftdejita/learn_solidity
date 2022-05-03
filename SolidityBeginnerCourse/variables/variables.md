@@ -18,7 +18,7 @@ Global変数は、ブロックチェーン、特定のアドレス、コント�
 
 <a href="https://www.youtube.com/watch?v=hl692-xJPUQ"  target="_blank">State変数</a>、<a href="https://www .youtube.com / watch？v = 5Gxzwn0SQDU " target =" _ blank ">Local変数</a>、および<a href ="https://www.youtube.com/watch?v=ryA86ZiSD-w " target = "_blank">Global変数。</a>
 
-## ⭐️問題
+## ⭐️課題
 1. `blockNumber`という新しいpublicなState変数を作成します。
 2. 関数`doSomething（）`内で、現在のブロック番号の値をstate変数`blockNumber`に割り当てます。
 

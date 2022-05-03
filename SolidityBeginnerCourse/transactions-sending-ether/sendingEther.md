@@ -66,7 +66,7 @@ Solidityは、アドレスデータ型の2つの異なるフレーバー（ア�
 
 <a href="https://www.youtube.com/watch?v=_5vGaqgzlG8" target="_blank">Etherの送信に関するビデオチュートリアルをご覧ください</a>。
 
-## ⭐️問題
+## ⭐️課題
 受益者が撤回できるEtherを受け取るチャリティーコントラクトを作成します。
 
 1. `Charity`というコントラクトを作成します。

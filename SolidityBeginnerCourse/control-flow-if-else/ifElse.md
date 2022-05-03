@@ -19,7 +19,7 @@ foo関数の最初の条件（6行目）が満たされていないが、 `else 
 
 <a href="https://www.youtube.com/watch?v=Ld8bFWXLSfs" target="_blank"> If/Elseステートメントのビデオチュートリアルをご覧ください</a>。
 
-## ⭐️問題
+## ⭐️課題
 `If​​Else`コントラクトに`evenCheck`という新しい関数を作成します。
 - それは引数として`uint`を取ります。
 - この関数は、引数が偶数の場合は `true`を返し、引数が奇数の場合は`false`を返します。

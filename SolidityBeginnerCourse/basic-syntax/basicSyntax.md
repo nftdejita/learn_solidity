@@ -16,7 +16,7 @@ Solidityは*静的に型付けされた*言語です。つまり、変数を宣�
 
 コードを理解しやすくするために、以降のすべてのセクションで、 SoliditybyExampleコントラクトの<a href="https://www.youtube.com/watch?v=g_t0Td4Kr6M" target="_blank">基本構文に関するビデオチュートリアル</a>をご覧ください。
 
-## ⭐️問題
+## ⭐️課題
 
 1. HelloWorldコントラクトとそのコンテンツを削除します。
 2. 「MyContract」という名前の新しい契約を作成します。
