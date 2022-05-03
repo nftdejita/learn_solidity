@@ -41,7 +41,7 @@ IDEでトークンコントラクト関数を展開します。
 **2.5.2** 「balanceOf」機能ボタンの横の入力フィールドにアドレスを貼り付けて、ボタンをクリックします。 
 1000000000000000000000（1000 * 10 ** 18）を返す必要があります。
 
-<img src = "https://github.com/dacadeorg/remixMedia/blob/main/token-course/erc20/erc20_balanceOf.gif?raw=true" alt="伝達関数のテスト" width= "300" />
+<img src = "https://github.com/dacadeorg/remixMedia/blob/main/token-course/erc20/erc20_balanceOf.gif?raw=true"/>
 
 **GIF** balanceOf関数のテスト
 
