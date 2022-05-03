@@ -1,18 +1,18 @@
 # The Opcode RETURN
 
-At the end of the last chapter we had moved to one step after **CODECOPY** to see what happened in the memory.
+前の章の終わりに、メモリ内で何が起こったかを確認するために、**CODECOPY**の次のステップに移動しました。
 
-Now that CODECOPY has been executed, we are on the opcode `PUSH1 00`.  
+CODECOPYが実行されたので、オペコード`PUSH100`を使用しています。
 
-`PUSH1 00` prepares the stack for the `RETURN` opcode.
-`RETURN` is the last part of this process.  It is where the code is returned to the client. 
+`PUSH1 00`は、`RETURN`オペコードのスタックを準備します。
+`RETURN`はこのプロセスの最後の部分です。 これは、コードがクライアントに返される場所です。
 
-We push `00` to the stack because this is the offset position of the contract bytecode in memory.
+これはメモリ内のコントラクトバイトコードのオフセット位置であるため、`00`をスタックにプッシュします。
 
-Now we can call the all important `RETURN` opcode.  
+これで、すべての重要な`RETURN`オペコードを呼び出すことができます。
 
-The **stack inspector** shows:
-`0: 0x0000000000000000000000000000000000000000000000000000000000000000`
-`1: 0x000000000000000000000000000000000000000000000000000000000000003e`
+**スタックインスペクター**は次のことを示しています。
+`0：0x0000000000000000000000000000000000000000000000000000000000000000`
+`1：0x000000000000000000000000000000000000000000000000000000000000003e`
 
-Which is to say it returns to the client the bytecode starting `0x00` with length `0x3e`.
+つまり、長さが`0x3e`の`0x00`で始まるバイトコードをクライアントに返します。

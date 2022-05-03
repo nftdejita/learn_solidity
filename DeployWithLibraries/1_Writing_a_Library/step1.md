@@ -1,16 +1,16 @@
-A libraries looks like a **contract** but use the keyword `library` 
+ライブラリは**コントラクト**のように見えますが、キーワード`library`を使用します
 
-A library typically is a collection of useful functions sitting out there on the blockchain that any contract can use.  Because the library is already deployed, it saves the deployment costs of the many contracts that use it.
+ライブラリは通常、任意のコントラクトが使用できるブロックチェーン上にある便利な関数のコレクションです。 ライブラリはすでにデプロイされているため、ライブラリを使用する多くのコントラクトのデプロイコストを節約できます。
 
-In the following contract:
- - Make a library with the name `LibraryForTest`. 
+次のコントラクトでは：
+  - `LibraryForTest`という名前のライブラリを作成します。
  
- It is possible to put a library in same file with another contract.  So put the library below the contract. 
+  別のコントラクトでライブラリを同じファイルに入れることができます。 したがって、ライブラリをコントラクトの下に置きます。
  
- This library should have a method called `getFromLib` method which returns `3`.
+  このライブラリには、`3`を返す`getFromLib`メソッドと呼ばれるメソッドが必要です。
  
- - Update the `get` method in the `test` contract to use the `LibraryForTest` library.   The function `get` should return the value it receives from `getFromLib`.
+  - `LibraryForTest`ライブラリを使用するように`test`コントラクトの`get`メソッドを更新します。 関数`get`は、`getFromLib`から受け取った値を返す必要があります。
 
- ---------
+  ---------
 
-You can find more info about libraries in <a href="https://solidity.readthedocs.io/en/latest/contracts.html?highlight=library#libraries" target="_blank">this section of the Solidity Docs</a>.
+ライブラリの詳細については、Solidityドキュメントの<a href="https://solidity.readthedocs.io/en/latest/contracts.html?highlight=library#libraries" target="_blank">このセクション</a>をご覧ください。

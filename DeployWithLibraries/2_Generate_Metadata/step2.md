@@ -1,38 +1,36 @@
-## Deploying Library
+## ライブラリのデプロイ
 
-The **library** from the previous chapter was in the same file as the **contract**. However, they won't be deployed together and will have different addresses.
+前の章の**ライブラリ**は**コントラクト**と同じファイルにありました。ただし、それらは一緒に展開されず、異なるアドレスを持ちます。
 
-In order to use a library, the calling contract must have the library's **address**.  
+ライブラリを使用するには、呼び出し側のコントラクトにライブラリの**アドレス**が必要です。
 
-But the library's address is not directly specified in the solidity code. The calling contract's compiled bytecode contains a **placeholder** where library's **addresses** will go.
+ただし、ライブラリのアドレスはSolidityコードで直接指定されていません。呼び出し元のコントラクトのコンパイル済みバイトコードには、ライブラリの**アドレス**が配置される**プレースホルダー**が含まれています。
 
-At deployment of the **calling contract**, Remix will look in the contract's **metadata** for the library's address and will update the placeholder with the address.
+**呼び出しコントラクト**の展開時に、Remixはコントラクトの**メタデータ**でライブラリのアドレスを検索し、プレースホルダーをそのアドレスで更新します。
 
-So before deploying a contract that calls a library, you need to generate the contract's metadata (AKA its **build artifact**) and then you need to input the library's address into the metadata file.
+したがって、ライブラリを呼び出すコントラクトをデプロイする前に、コントラクトのメタデータ（別名**ビルドアーティファクト**）を生成してから、ライブラリのアドレスをメタデータファイルに入力する必要があります。
 
-A contract's metadata is generated at **compile time**. 
+コントラクトのメタデータは**コンパイル時**に生成されます。
 
-Let's setup Remix to generate the **metadata file**.
+**メタデータファイル**を生成するようにRemixをセットアップしましょう。
 
- - Go to the settings module by clicking on the settings ![settings](https://github.com/ethereum/remix-workshops/raw/master/DeployWithLibraries/2_Generate_Metadata/settings.png "Settings") icon in the icon panel. 
- 
- ![settings module](https://github.com/ethereum/remix-workshops/raw/master/DeployWithLibraries/2_Generate_Metadata/remix_settings.png "Settings Module")
+ - アイコンパネルの設定![settings](settings.png "Settings")アイコンをクリックして、設定モジュールに移動します。 
+ ![設定モジュール](remix_settings.png "Settings Module")
 
- - And check the first option `Generate contract metadata`. 
+ - そして、最初のオプション「コントラクトメタデータの生成」をチェックします。
 
-# Compile and generate metadata (JSON) file.
+# メタデータ（JSON）ファイルをコンパイルして生成します。
 
-1. Open the Solidity Compiler ![Solidity Compiler](https://github.com/ethereum/remix-workshops/raw/master/DeployWithLibraries/2_Generate_Metadata/remix_icon_solidity.png "Solidity Compiler")
+1. Solidityコンパイラを開きます![Solidityコンパイラ](remix_icon_solidity.png "Solidityコンパイラ")
 
-2. Compile `2_contractSimpleLibrary.sol`.
+2. `2_contractSimpleLibrary.sol`をコンパイルします。
 
-3. Switch to the File Explorer ![File Explorer](https://github.com/ethereum/remix-workshops/raw/master/DeployWithLibraries/2_Generate_Metadata/remix_file_explorer.png "File Explorer") 
+3. ファイルエクスプローラーに切り替えます![ファイルエクスプローラー](remix_file_explorer.png "ファイルエクスプローラー")
 
-4. Navigate to the newly create JSON files.  
-    - It should be in the folder:
-
+4. 新しく作成したJSONファイルに移動します。
+    - 次のフォルダにあるはずです：
 **browser/.learneth/DeployWithLibraries/2_Generate_Metadata/artifacts/**  
-    
-5. Select the newly created JSON file created from the contract.  It has the **same name** as the contract `sample` but with the extension **json**: `sample.json` (don't select the library's metadata `contractSimpleLibrary.json`).
 
-In the next step we'll make some adjustments to the metadata file.
+5. コントラクトから作成された新しく作成されたJSONファイルを選択します。コントラクト`sample`と**同じ名前**ですが、拡張子は**json**：` sample.json`です（ライブラリのメタデータ `contractSimpleLibrary.json`は選択しないでください）。
+
+次のステップでは、メタデータファイルにいくつかの調整を加えます。

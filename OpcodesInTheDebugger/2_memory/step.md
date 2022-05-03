@@ -1,8 +1,8 @@
-Before we start, just quick reminder:
+始める前に、簡単に思い出してください。
 
-The runtime of the EVM has several kinds of memory:
+EVMのランタイムには、いくつかの種類のメモリがあります。
 
- -  `calldata`: This is the input value given to the transaction.
- -  `stack`: Basically, this is a list of values, each value is limited in size (32 bytes).
- -  `memory`: Memory is used when the **type** of value getting stored is more complex like an array or a mapping. This memory is **temporary** and is **released** at the end of the execution.
- -  `storage`: This is a mapping, each value stored is **persisted** and saved on chain.
+  - `calldata`：これはトランザクションに与えられた入力値です。
+  - `stack`：基本的に、これは値のリストであり、各値のサイズは制限されています（32バイト）。
+  - `memory`：格納される値の**タイプ**が配列やマッピングのように複雑な場合にメモリが使用されます。 このメモリは**一時的**であり、実行の最後に**解放**されます。
+  - `storage`：これはマッピングです。保存された各値は**永続化**され、チェーンに保存されます。

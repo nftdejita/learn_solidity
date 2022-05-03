@@ -1,6 +1,6 @@
 ---
 id: opcodesdebug
-name: Opcodes in the Debugger
+name: オペコードによるデバッグ
 summary: Using the Debugger, we'll check out what the CODECOPY opcode does and how it is used by the EVM during contract creation.
 level: 3 
 tags: 
@@ -8,3 +8,20 @@ tags:
   - Debugging
   - EVM
   - Opcodes
+steps:
+  - name: 1. 概要
+    path: 1_intro
+  - name: 2. メモリ
+    path: 2_memory
+  - name: 3. コードコピー
+    path: 3_codecopy
+  - name: 4. デプロイとコードコピー
+    path: 4_Deployment_and_CODECOPY
+  - name: 5. デバッグとコードコピー
+    path: 5_Debugger_and_CODECOPY
+  - name: 6. コードコピーのチェック
+    path: 6_Checking_CODECOPY
+  - name: 7. 戻り値とストア
+    path: 7_returnAndStore
+  - name: 8. オフセット検索
+    path: 8_findTheOffset

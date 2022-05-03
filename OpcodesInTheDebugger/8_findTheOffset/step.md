@@ -1,18 +1,18 @@
-# Find the offset ;)
+# オフセットを見つける
 
-And now for a slightly different example:
+そして今、少し異なる例のために：
 
- - Compile notSimpleStore.sol
- - Deploy the contract `notSoSimpleStore`
- - Make sure you have a successful deployment - if not check that you used **the correct input type** in the constructor.
- - Go to the Debugger by clicking the **debug** button at the (successful) creation transaction.
- - Find the value of the parameter of `CODECOPY` which represents the offset in calldata where to copy from.
+  - notSimpleStore.solをコンパイルします
+  - コントラクト`notSoSimpleStore`をデプロイします
+  - デプロイメントが成功していることを確認します-そうでない場合は、コンストラクターで**正しい入力タイプ**を使用したことを確認します。
+  - （成功した）作成トランザクションで** debug **ボタンをクリックして、デバッガーに移動します。
+  - コピー元のcalldataのオフセットを表す`CODECOPY`のパラメータの値を見つけます。
  
-Remember: *codecopy(t, f, s)* - copy **s** bytes from code at position **f** to memory at position **t**
+注意：* codecopy（t、f、s）*-**s**バイトを**f**の位置のコードから**t**の位置のメモリにコピーします
 
-If you look in the **Stack**, you should see that the 2nd element is:
+**スタック**を見ると、2番目の要素が次のようになっていることがわかります。
 0x0000000000000000000000000000000000000000000000000000000000000083
 
-And this is the **f** of the input params of codecopy.
+そして、これはコードコピーの入力パラメータの**f**です。
 
-### Hope you picked up a thing or 2 about how opcodes work!
+### オペコードがどのように機能するかについて1つか2つ取り上げていただければ幸いです。

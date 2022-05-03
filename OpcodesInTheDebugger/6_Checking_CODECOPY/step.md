@@ -1,35 +1,38 @@
-The goal here is to store the code in the blockchain. The EVM needs to tell the client (geth, parity) which what part of the **Call Data** to store.   In this step, we are saving the contract MINUS its constructor (because that gets inplmented only 1 time) and MINUS the input parameter does not need to be stored.
+ここでの目標は、ブロックチェーンにコードを格納することです。EVMは、クライアント（geth、parity）に、**Call Data**のどの部分を保存するかを伝える必要があります。  このステップでは、コンストラクタを除いたコントラクトを保存し（1回だけインプリメントされるため）、入力パラメータを保存する必要がないことを除いたものを保存します。
 
 
-`CODECOPY` is the first step: it copies the bytecode to memory, then the ethereum client will be able to consume it.  MUNCH! 
+`CODECOPY`は最初のステップです。バイトコードをメモリにコピーし、イーサリアムクライアントがそれを消費できるようにします。 MUNCH! 
 
-But wait... before the client can **MUNCH**  bytecode, it needs an instruction - an opcode to tell it to MUNCH. `RETURN` is this opcode!
+しかし待ってください...クライアントがバイトコードを**MUNCH**する前に、MUNCHするように指示する命令 - opcodeが必要なのです。これが `RETURN` というオペコードです。
 
-As stated in the general spec, at the end of the contract creation, the client (geth, parity) takes the targeted value by the opcode `RETURN` and **persists** it by making it part of the deployed bytecode.  
-
-
-Once you are in the `CODECOPY`, look at the top 3 items in the **Stack**:
-
-`0: 0x0000000000000000000000000000000000000000000000000000000000000000`
-`1: 0x0000000000000000000000000000000000000000000000000000000000000055`
-`2: 0x000000000000000000000000000000000000000000000000000000000000003e`
-
-*In your Stack - `1` & `2` may be slightly different.  The difference may be due to a different compiler version.*
-
-**These are the parameters for `CODECOPY`.**
-
-Remember: *codecopy(t, f, s)* - copy **s** bytes from code at position **f** to memory at position **t**
-
-`0` is the offset where the copied code should be placed in the **memory**. In this example, ( all zeros) the code is copied to the beginning of the memory. (**t**)
-`1` is the offset in **calldata** where to copy from (**f**)
-`2` number of bytes to copy - (**s**)
+一般的な仕様にあるように、コントラクトの作成の最後に、クライアント (geth, parity) はオペコード `RETURN` によってターゲットとなる値を受け取り、それをデプロイされたバイトコードの一部にすることで**永続化**するのです。 
 
 
-After `CODECOPY` is executed, (click the *step into* button) the copied code should be:
-`0x6080604052600080fdfea265627a7a7231582029bb0975555a15a155e2cf28e025c8d492f0613bfb5cbf96399f6dbd4ea6fc9164736f6c63430005110032` in memory.  **I'll refer to this value as (X)**.
+`CODECOPY`に入ったら、**Stack**の上位3つの項目を見てください。
 
-Let's look at the debugger's **Memory** panel.
-The 0x number I gave above is not what you will see in the **Memory** panel -what you will see is this:
+```
+0: 0x0000000000000000000000000000000000000000000000000000000000000000
+1: 0x0000000000000000000000000000000000000000000000000000000000000055
+2: 0x000000000000000000000000000000000000000000000000000000000000003e
+```
+
+*お使いのスタックでは、`1`と`2`が若干異なる場合があります。 コンパイラのバージョンによる違いかもしれません。*
+
+**これらは `CODECOPY` のパラメータです。**
+
+注記： *codecopy(t, f, s)* - コード位置 **f** からメモリ位置 **t** に **s** バイトをコピーします。
+
+- (**t**)は、コピーされたコードが **メモリ** に配置されるオフセットです。この例では、(すべてゼロ)コードはメモリの先頭にコピーされます。
+- (**f**)はコピー元の **calldata** 内のオフセットです 
+- (**s**)はコピーするバイト数  
+
+
+`CODECOPY`が実行された後、(*step into*ボタンをクリックして)コピーされたコードは以下のようになります。`0x6080604052600080fdfea265627a7a7231582029bb0975555a15a155e2cf28e025c8d492f0613bfb5cbf96399f6dbd4ea6fc9164736f6c63430005110032` in memory.  **この値を(X)**と呼ぶことにします。
+
+
+デバッガの**メモリ**パネルを見てみましょう。
+メモリ**パネルに表示されるのは、先ほどの0xの数字ではありません。
+```
 0x0: 6080604052600080fdfea265627a7a72 ????R??????ebzzr
 0x10: 31582029bb0975555a15a155e2cf28e0 1X ?? uUZ??U????
 0x20: 25c8d492f0613bfb5cbf96399f6dbd4e ?????a?????9?m?N
@@ -40,22 +43,24 @@ The 0x number I gave above is not what you will see in the **Memory** panel -wha
 0x70: 00000000000000000000000000000000 ????????????????
 0x80: 00000000000000000000000000000000 ????????????????
 0x90: 00000000000000000000000000000002 ????????????????
+```
 
-The `0x0`, `0x10`, etc is the position. The next number is the bytecode for that position.  This is followed by question marks and seemingly random letters & numbers.  This is **Remix**'s attempt to convert this into a string.  
+0x0`, `0x10` などは位置です。次の数字はその位置のバイトコードです。 この後、クエスチョンマークと一見ランダムな文字と数字が続きます。 これは**Remix**がこれを文字列に変換しようとしているのです。 
 
-So if we glue the first four sections of bytecode together, we'll get:
-**0x6080604052600080fdfea265627a7a7231582029bb0975555a15a155e2cf28e0a6fc9164736f6c63430005110032**  The last section - `0x90` has 2 which is what I input for the constructors parameter.
+つまり、最初の4つのセクションのバイトコードをくっつけると、次のようになります。
+**0x6080604052600080fdfea265627a7a7231582029bb0975555a155e2cf28e0a6fc9164736f6c63430005110032** 最後のセクション - `0x90` には2があり、これは私がコンストラクターのパラメーターとして入力しているものです。
 
-The input data from the **Call Data** panel is:
+呼び出しデータ**パネルからの入力データです。
 `0x6080604052348015600f57600080fd5b506040516093380380609383398181016040526020811015602f57600080fd5b81019080805190602001909291905050508060008190555050603e8060556000396000f3fe6080604052600080fdfea265627a7a7231582029bb0975555a15a155e2cf28e025c8d492f0613bfb5cbf96399f6dbd4ea6fc9164736f6c634300051100320000000000000000000000000000000000000000000000000000000000000002`
- **I'll refer to this value as (Y).**
+ **この値を(Y)と呼ぶことにする。**
 
-This shows us that `(X)` is a subset of the original calldata `(Y)`:
+これは、`(X)`が元のcalldata `(Y)`の部分集合であることを表しています。
 
-`(X)` is calldata without the input parameter `0000000000000000000000000000000000000000000000000000000000000002` (we don't need to store this)
-and without the constructor code `6080604052348015600f57600080fd5b506040516093380380609383398181016040526020811015602f57600080fd5b81019080805190602001909291905050508060008190555050603e8060556000396000f3fe` which should be executed only 1 time.
+(X)` は入力パラメータ `00000000000000000000002` を除いた calldata であり（これを保存する必要はありません）。
+
+また、コンストラクタコード `6080604052348015600f57600080fd5b506040516093380380609383398181016040526020811015602f57600080fd5b810190805190602001909290505080600081905550603e8060556000396000f3fe` は含まないものです（1回だけ実行されるはずです）。
 
 
-So `CODECOPY` extracts the bytecode from the calldata and copies it to the memory.
+そこで、`CODECOPY` は calldata からバイトコードを取り出し、メモリにコピーします。
 
-Let's move to the next step.
+次のステップに進みましょう。

@@ -1,26 +1,26 @@
-Switch to the `Deploy & Run` module 
-![Run transaction](https://github.com/ethereum/remix-workshops/raw/master/DeployWithLibraries/4_Linking_and_Deploying/images/remix_runtransaction.png "Run Transaction")
+`Deploy＆Run`モジュールに切り替えます
+![トランザクションの実行](images/remix_runtransaction.png "トランザクションの実行")
 
- - Select the JavaScript VM Environment and select the `sampleContract` contract in the list of compiled contracts.
+ - JavaScript VM環境を選択し、コンパイルされたコントラクトのリストで`sampleContract`コントラクトを選択します。
 
- - Click on `Deploy`
+ - `Deploy`をクリックします
  
- The terminal should output something like `creation of sample errored: <address> is not a valid address. Please check the provided address is valid.`
- That is expected: **We have set `autoDeployLib` to false, so Remix expects to have an address and not just `<address>`**
+ コンソールに`creation of sample errored: <address> is not a valid address. Please check the provided address is valid.`のようにエラーが出力されますが、これは予想されることです。
+ 
+ **`autoDeployLib`をfalseに設定したため、Remixは`<address>`だけでなくアドレスを持っていることを期待しています**
 
-So we need deploy the library to get its address.
+したがって、ライブラリをデプロイしてそのアドレスを取得する必要があります。
 
-  - Select the library `aLib` in the list of compiled contract and hit `deploy`
+  - コンパイルされたコントラクトのリストでライブラリ`aLib`を選択し、`deploy`を押します
+  
+    ![Choose aLib](images/contract_alib.png "Choose aLib")
 
-    ![Choose aLib](https://github.com/ethereum/remix-workshops/raw/master/DeployWithLibraries/4_Linking_and_Deploying/images/contract_alib.png "Choose aLib")
+  - クリップボードアイコンをクリックして、ライブラリのアドレスをコピーします。
 
-  - Click the clipboard icon to copy the address of the library.
+    ![コピーlib1](images/alib_copy.png "コピー")
 
-    ![Copy lib1](https://github.com/ethereum/remix-workshops/raw/master/DeployWithLibraries/4_Linking_and_Deploying/images/alib_copy.png "Copy")
+  - **契約サンプルの**メタデータJSONに貼り付けます。
 
-  - Paste it into the **contract sample's** metadata JSON.
+  - `Runtransaction`モジュールで`sampleContract`コントラクトを再度選択し、デプロイを押します。
 
-  - Reselect the `sampleContract` contract in the `Run transaction` module and hit deploy.
-
-  - Deploy should now be successful.
-
+  - これでデプロイが成功するはずです。

@@ -1,3 +1,3 @@
-## Learn the Proxy Pattern
+## プロキシ型コントラクト
 
-Save gas & make upgradable contracts
+ガス代を節約し、アップグレード可能なコントラクトを作成します
